@@ -8,6 +8,7 @@ import LanguageRounded from "@material-ui/icons/LanguageRounded";
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import "./Login.css";
+import logof from './../logof.jpg';
 
 
 export class Login extends React.Component {
@@ -17,8 +18,8 @@ export class Login extends React.Component {
                 <CssBaseline />
                 <main className="layout">
                     <Paper className="paper">
-                        <LanguageRounded color="primary" className="svg_icons"/>
-                        <Typography variant="h4">Sign in</Typography>
+                        <img src={logof} alt="logo" className="img"/> 
+                        <Typography variant="h5">Sign in</Typography>
                         <form className="form" onSubmit={this.handleSubmit} name="login-form">
                             <FormControl margin="normal" required fullWidth>
                                 <InputLabel htmlFor="email">Email Address</InputLabel>
@@ -44,7 +45,9 @@ export class Login extends React.Component {
                             </Button>
                         </form>
                         <br></br>
-                        <a href="/registerteacher">Register</a>
+                        <br></br>
+                        <a href="/register/teacher">RegisterTeacher</a>
+                        <a href="/register/student">RegisterStudent</a>                        
                     </Paper>
                 </main>
             </React.Fragment>
