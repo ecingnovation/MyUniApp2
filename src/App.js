@@ -4,6 +4,7 @@ import { Login } from './Login/Login';
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { PagesView } from "./PagesView/PagesView";
+import logo from './logo.svg';
 
 const theme = createMuiTheme({
     palette: {
@@ -39,11 +40,12 @@ class App extends Component {
     render() {
         return (
             <div>
+                
                 <MuiThemeProvider theme={theme}>
                     <Router>
                         <div>
                             <Route exact path="/" component={LoginView}/>
-                            <Route path="/registerteacher" component={PagesViewView}/>
+                            <Route path="/register" component={PagesViewView}/>
                         </div>
                     </Router>
                 </MuiThemeProvider>

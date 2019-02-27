@@ -4,6 +4,7 @@ import DrawerAppBar from "../DrawerAppBar/DrawerAppBar";
 import "./PagesView.css";
 import { Route, Switch } from 'react-router-dom';
 import { RegisterTeacher } from "../Register/RegisterTeacher";
+import { RegisterStudent } from "../Register/RegisterStudent";
 
 export class PagesView extends React.Component {
     render() {
@@ -11,7 +12,8 @@ export class PagesView extends React.Component {
             <div>
                 <DrawerAppBar/>
                 <Switch>
-                    <Route exact path="/registerteacher" component={RegisterTeacherView}/>
+                    <Route exact path="/register/teacher" component={RegisterTeacherView}/>
+                    <Route path="/register/student" component={RegisterStudentView}/>
                 </Switch>
             </div>
         );
@@ -20,4 +22,7 @@ export class PagesView extends React.Component {
 
 const RegisterTeacherView = () => (
     <RegisterTeacher/>
+);
+const RegisterStudentView = () => (
+    <RegisterStudent/>
 );

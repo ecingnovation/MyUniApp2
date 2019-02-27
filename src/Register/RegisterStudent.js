@@ -9,19 +9,20 @@ import Avatar from '@material-ui/core/Avatar';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 
 
-export class RegisterTeacher extends React.Component{
+export class RegisterStudent extends React.Component{
     constructor(props){
       super(props);
       this.state = {
         name : '',
         lastName : '',
+        degree : '',
+        semester : '', 
         email : '',
-        faculty : '',
-        teachertype: '',
         phone : '',
         address : '',
         password : '',
         passwordConfirmation : ''
+        
       };
 
       this.handleRegister = this.handleRegister.bind(this);
@@ -45,18 +46,18 @@ export class RegisterTeacher extends React.Component{
       });
   }
   
-  handleFacultyChange = event => {
+  handleDegreeChange = event => {
       this.setState({
-          faculty: event.target.value
+          degree: event.target.value
       });
   }
   
-  handleTeacherTypeChange = event => {
+  handleSemesterChange = event => {
       this.setState({
-          teachertype: event.target.value
+          semester: event.target.value
       });
   }
-
+  
   handlePhoneChange = event => {
       this.setState({
           phone: event.target.value
@@ -83,7 +84,7 @@ export class RegisterTeacher extends React.Component{
 
   handleRegister = (event) => {
   }
-
+  
     render(){
         return (
             <React.Fragment>
@@ -93,7 +94,7 @@ export class RegisterTeacher extends React.Component{
                         <Avatar className="avatar">
                             <AssignmentIcon />
                         </Avatar>
-                        <Typography variant="headline">Register Teacher</Typography>
+                        <Typography variant="headline">Register</Typography>
                         <form className="form" onSubmit={this.handleRegister}>
                             <FormControl margin="normal" required fullWidth>
                                 <InputLabel htmlFor="text">Name</InputLabel>
@@ -114,16 +115,6 @@ export class RegisterTeacher extends React.Component{
                                 />
                             </FormControl>
                             <FormControl margin="normal" required fullWidth>
-                                <InputLabel htmlFor="text">Faculty</InputLabel>
-                               <Input
-                                    id="faculty"
-                                    name="faculty"
-                                    autoComplete="faculty"
-                                    autoFocus
-                                    onChange = {this.handleFacultyChange}
-                                />
-                            </FormControl>
-                             <FormControl margin="normal" required fullWidth>
                                 <InputLabel htmlFor="text">Email</InputLabel>
                                <Input
                                     id="email"
@@ -134,13 +125,23 @@ export class RegisterTeacher extends React.Component{
                                 />
                             </FormControl>
                             <FormControl margin="normal" required fullWidth>
-                                <InputLabel htmlFor="text">Teacher Type</InputLabel>
+                                <InputLabel htmlFor="text">Degree</InputLabel>
                                <Input
-                                    id="teachertype"
-                                    name="teachertype"
-                                    autoComplete="teachertype"
+                                    id="degree"
+                                    name="degree"
+                                    autoComplete="degree"
                                     autoFocus
-                                    onChange = {this.handleteachertypeChange}
+                                    onChange = {this.handleDegreeChange}
+                                />
+                            </FormControl>
+                            <FormControl margin="normal" required fullWidth>
+                                <InputLabel htmlFor="text">Semester</InputLabel>
+                               <Input
+                                    id="semester"
+                                    name="semester"
+                                    autoComplete="semester"
+                                    autoFocus
+                                    onChange = {this.handleDegreeChange}
                                 />
                             </FormControl>
                             <FormControl margin="normal" required fullWidth>
@@ -172,7 +173,8 @@ export class RegisterTeacher extends React.Component{
                                     autoComplete="current-password"
                                     onChange = {this.handlePasswordChange}
                                 />
-                            </FormControl>
+                              </FormControl>
+
                             <FormControl margin="normal" required fullWidth>
                                 <InputLabel htmlFor="password">Confirm Password</InputLabel>
                                 <Input
