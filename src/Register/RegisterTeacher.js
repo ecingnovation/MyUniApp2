@@ -69,7 +69,7 @@ export class RegisterTeacher extends React.Component{
 
   handleRegister = (event) => {
   }
-  
+
     render(){
         return (
             <React.Fragment>
@@ -79,7 +79,7 @@ export class RegisterTeacher extends React.Component{
                         <Avatar className="avatar">
                             <AssignmentIcon />
                         </Avatar>
-                        <Typography variant="headline">Register</Typography>
+                        <Typography variant="headline">Register Teacher</Typography>
                         <form className="form" onSubmit={this.handleRegister}>
                             <FormControl margin="normal" required fullWidth>
                                 <InputLabel htmlFor="text">Name</InputLabel>

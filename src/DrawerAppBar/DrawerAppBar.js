@@ -37,7 +37,7 @@ class DrawerAppBar extends React.Component {
                             <MenuOutlined />
                         </IconButton>
                         <Typography variant="h6" color="inherit" className="grow" >
-                            Task List
+                            MyUniApp
                         </Typography>
                         <Button color="inherit">Login</Button>
                     </Toolbar>
@@ -75,13 +75,36 @@ const sideList = (
                 <ListItemIcon>
                     <InboxIcon/>
                 </ListItemIcon>
-                <ListItemText primary="Inbox"/>
+                <ListItemText primary="Mapa"/>
             </ListItem>
             <ListItem button key="mail">
                 <ListItemIcon>
                     <MailIcon/>
                 </ListItemIcon>
-                <ListItemText primary="Mail" />
+                <ListItemText primary="Sitio" />
+            </ListItem>
+            <ListItem button key="mail">
+                <ListItemIcon>
+                    <MailIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Kioskos" />
+            </ListItem><ListItem button key="mail">
+                <ListItemIcon>
+                    <MailIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Eventos" />
+            </ListItem>
+            <ListItem button key="mail">
+                <ListItemIcon>
+                    <MailIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Noticias" />
+            </ListItem>
+            <ListItem button key="mail">
+                <ListItemIcon>
+                    <MailIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Diligencias" />
             </ListItem>
         </List>
     </div>
