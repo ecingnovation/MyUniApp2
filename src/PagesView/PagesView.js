@@ -5,6 +5,9 @@ import "./PagesView.css";
 import { Route, Switch } from 'react-router-dom';
 import { RegisterTeacher } from "../Register/RegisterTeacher";
 import { RegisterStudent } from "../Register/RegisterStudent";
+import { RegisterAdministrative } from "../Register/RegisterAdministrative";
+import { FullRegister } from "../Register/FullRegister";
+
 
 export class PagesView extends React.Component {
     render() {
@@ -14,6 +17,8 @@ export class PagesView extends React.Component {
                 <Switch>
                     <Route exact path="/register/teacher" component={RegisterTeacherView}/>
                     <Route path="/register/student" component={RegisterStudentView}/>
+                    <Route path="/register/administrative" component={RegisterAdministrativeView}/>
+                    <Route path="/register/full" component={FullRegisterView}/>
                 </Switch>
             </div>
         );
@@ -25,4 +30,11 @@ const RegisterTeacherView = () => (
 );
 const RegisterStudentView = () => (
     <RegisterStudent/>
+);
+const RegisterAdministrativeView = () => (
+    <RegisterAdministrative/>
+);
+
+const FullRegisterView = () => (
+    <FullRegister/>
 );

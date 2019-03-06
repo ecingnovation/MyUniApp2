@@ -47,7 +47,9 @@ export class Login extends React.Component {
                         <br></br>
                         <br></br>
                         <a href="/register/teacher">RegisterTeacher</a>
-                        <a href="/register/student">RegisterStudent</a>                        
+                        <a href="/register/student">RegisterStudent</a>
+                        <a href="/register/administrative">RegisterAdministrative</a>
+                        <a href="/register/Full">Register</a>
                     </Paper>
                 </main>
             </React.Fragment>
