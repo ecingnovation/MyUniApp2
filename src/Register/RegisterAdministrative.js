@@ -12,16 +12,15 @@ import Select from '@material-ui/core/Select';
 
 
 
-export class RegisterStudent extends React.Component{
+export class RegisterAdministrative extends React.Component{
     constructor(props){
       super(props);
       this.state = {
         name : '',
         lastName : '',
-        faculty : '',
-        semester : '', 
         email : '',
         phone : '',
+        dependency : '',
         password : '',
         passwordConfirmation : ''
         
