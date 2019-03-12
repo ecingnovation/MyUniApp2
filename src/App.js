@@ -4,19 +4,18 @@ import { Login } from './Login/Login';
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { PagesView } from "./PagesView/PagesView";
-import logo from './logo.svg';
 
 const theme = createMuiTheme({
     palette: {
         primary: {
             // light: will be calculated from palette.primary.main,
-            main: '#B40404',
+            main: '#f44336',
             // dark: will be calculated from palette.primary.main,
             // contrastText: will be calculated to contrast with palette.primary.main
         },
         secondary: {
             //light: '#0066ff',
-            main: '#81d4fa',
+            main: '#ffb300',
             // dark: will be calculated from palette.secondary.main,
             //contrastText: '#ffcc00',
         },

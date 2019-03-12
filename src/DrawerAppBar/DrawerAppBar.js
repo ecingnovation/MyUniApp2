@@ -6,8 +6,12 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import Fastfood from "@material-ui/icons/Fastfood";
+import Place from "@material-ui/icons/Place";
+import Assignment from "@material-ui/icons/Assignment";
+import WebIcon from "@material-ui/icons/Web";
+import HelpIcon from "@material-ui/icons/Help";
 import MenuOutlined from "@material-ui/icons/MenuOutlined"
 import AccountBox from "@material-ui/icons/AccountBox";
 import { AppBar, Toolbar, Typography, IconButton } from "@material-ui/core";
@@ -73,7 +77,7 @@ const sideList = (
             <Divider/>
             <ListItem button key="inbox">
                 <ListItemIcon>
-                    <InboxIcon/>
+                    <Place/>
                 </ListItemIcon>
                 <ListItemText primary="Mapa"/>
             </ListItem>
@@ -85,24 +89,24 @@ const sideList = (
             </ListItem>
             <ListItem button key="mail">
                 <ListItemIcon>
-                    <MailIcon/>
+                    <Fastfood/>
                 </ListItemIcon>
                 <ListItemText primary="Kioskos" />
             </ListItem><ListItem button key="mail">
                 <ListItemIcon>
-                    <MailIcon/>
+                    <Assignment/>
                 </ListItemIcon>
                 <ListItemText primary="Eventos" />
             </ListItem>
             <ListItem button key="mail">
                 <ListItemIcon>
-                    <MailIcon/>
+                    <WebIcon/>
                 </ListItemIcon>
                 <ListItemText primary="Noticias" />
             </ListItem>
             <ListItem button key="mail">
                 <ListItemIcon>
-                    <MailIcon/>
+                    <HelpIcon/>
                 </ListItemIcon>
                 <ListItemText primary="Diligencias" />
             </ListItem>
