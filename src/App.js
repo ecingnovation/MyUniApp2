@@ -44,7 +44,7 @@ class App extends Component {
                     <Router>
                         <div>
                             <Route exact path="/" component={LoginView}/>
-                            <Route path="/register" component={PagesViewView}/>
+                            <Route path="/app" component={PagesViewView}/>
                         </div>
                     </Router>
                 </MuiThemeProvider>
