@@ -6,7 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import { RegisterTeacher } from "../Register/RegisterTeacher";
 import { RegisterStudent } from "../Register/RegisterStudent";
 import { RegisterAdministrative } from "../Register/RegisterAdministrative";
-import { FullRegister } from "../Register/FullRegister";
+import  FullRegister  from "../Register/FullRegister";
 
 
 export class PagesView extends React.Component {

@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+//import { StyleSheet, Text, View } from 'react-native';
 import { createStackNavigator } from 'react-navigation'
 import {RegisterStudent} from './RegisterStudent';
 import {RegisterTeacher} from './RegisterTeacher';
@@ -21,7 +21,7 @@ const AppStackNavigator = createStackNavigator({
 
 })
 
-const styles = StyleSheet.create({
+/*const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -29,6 +29,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
+*/
 
 export default FullRegister;
