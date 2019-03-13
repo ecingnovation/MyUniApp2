@@ -5,6 +5,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps';
 
 const styles = theme => ({
     card: {
@@ -23,48 +24,44 @@ const styles = theme => ({
     }
 });
 
-class InterestPoints extends React.Component {
+class InterestPoint extends React.Component {
 
 
     constructor(props) {
                   super(props);
                   console.log(props.description+'lksdjfldsf');
+                  this.state = {
+                              isOpen:false,
+                          };
 
               }
     render(){
-        const { classes } = this.props;
+
         return (
-            <Card className={classes.card}>
-                <CardMedia
-                    className={classes.cover}
-                    image={this.props.image}
-                    IMAGEN
-                    title={this.props.title}
-                    Título
-
-                />
-                <div className={classes.details}>
-                    <CardContent className={classes.content}>
-                        <Typography component="h6" variant="h6">
-                            {this.props.title}
-                            Título
-                        </Typography>
-                        <Typography variant="subtitle1" color="textSecondary">
-                            {this.props.description}
-                            Description
-                        </Typography>
-                    </CardContent>
-
-                </div>
-
-            </Card>
+            <Marker position={{ lat: this.props.currentLocation.lat, lng: this.props.currentLocation.lng }} onClick={this.handleToggle} label={this.props.label} >
+                {this.state.isOpen &&
+                    <InfoWindow
+                            onCloseClick={this.handleToggleClose}
+                            >
+                        <span>Description: {this.props.description} </span>
+                    </InfoWindow>
+                }
+            </Marker>
         );
     }
+    handleToggle = () => {
+    	this.setState({
+    		isOpen: !false
+    	});
+    }
+
+        handleToggleClose = () => {
+            this.setState({
+                isOpen: false
+            });
+        }
 }
 
-InterestPoints.propTypes = {
-    classes: PropTypes.object.isRequired,
-    theme: PropTypes.object.isRequired,
-};
 
-export default withStyles(styles, { withTheme: true })(InterestPoints);
+
+export default withStyles(styles, { withTheme: true })(InterestPoint);

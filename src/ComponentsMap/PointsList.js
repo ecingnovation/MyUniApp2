@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import Point from "./InterestPoints";
+import Point from "./InterestPoint";
 
 
-export default class BooksList extends Component {
+export default class PointList extends Component {
 
     constructor(props) {
         super(props);
@@ -12,7 +12,7 @@ export default class BooksList extends Component {
 
         const points = this.props.pointsList.map((point, i) => {
             return (
-                <Point key={i} description={point.description} title={point.title} image={point.image}/>
+                <Point key={i} description={point.description} title={point.title} image={point.image} currentLocation={point.currentLocation} label={point.label}/>
             );
         });
 

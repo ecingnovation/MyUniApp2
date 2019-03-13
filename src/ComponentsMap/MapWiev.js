@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
 import MapComponent from './Map'
-
+import PointList from './PointsList'
 class MapView extends Component {
   constructor(props){
     super(props)
@@ -10,7 +10,8 @@ class MapView extends Component {
         lat: 0,
         lng: 0
       },
-      isMarkerShown: false
+      isMarkerShown: false,
+      markerList:""
     }
   }
 
@@ -20,6 +21,46 @@ class MapView extends Component {
 
   componentDidMount() {
     this.delayedShowMarker()
+    let markerList = []
+            markerList.push({
+
+                            description: "A ",
+                            title: "Title",
+                            currentLocation :{
+                                lat: 4.7827587,
+                                lng: -74.0427843
+                            },
+                            label:"A",
+                            Image: "IMAGE"
+
+            })
+            markerList.push({
+
+                            description: "B ",
+                            title: "Title",
+                            currentLocation: {
+                                lat: 4.7828577,
+                                lng: -74.0427804
+                            },
+                            label:"B",
+                            Image: "IMAGE"
+
+            })
+            markerList.push({
+
+                            description: "C ",
+                            title: "Title",
+                            currentLocation: {
+                                lat: 4.7824575,
+                                lng: -74.0422877
+                            },
+                            label:"C",
+                            Image: "IMAGE"
+
+            })
+            this.setState({markerList: markerList});
+            localStorage.setItem('Markers', markerList);
+            console.log(this.state.markerList)
   }
 
   delayedShowMarker = () => {
@@ -30,7 +71,7 @@ class MapView extends Component {
   }
 
   handleMarkerClick = () => {
-    this.setState({ isMarkerShown: false })
+
     this.delayedShowMarker()
   }
 
@@ -64,6 +105,7 @@ class MapView extends Component {
         isMarkerShown={this.state.isMarkerShown}
         onMarkerClick={this.handleMarkerClick}
         currentLocation={this.state.currentLatLng}
+        markers= <PointList pointsList={this.state.markerList} />
       />
 
     )
