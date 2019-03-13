@@ -4,7 +4,7 @@ import DrawerAppBar from "../DrawerAppBar/DrawerAppBar";
 import "./PagesView.css";
 import { Route, Switch } from 'react-router-dom';
 import { RegisterTeacher } from "../Register/RegisterTeacher";
-import Map from "../ComponentsMap/Map";
+import Map from "../ComponentsMap/MapView";
 
 export class PagesView extends React.Component {
     render() {

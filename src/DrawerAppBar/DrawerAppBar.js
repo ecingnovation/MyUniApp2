@@ -6,7 +6,7 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
+import MailIcon from "@material-ui/icons/Mail";
 import Fastfood from "@material-ui/icons/Fastfood";
 import Place from "@material-ui/icons/Place";
 import Assignment from "@material-ui/icons/Assignment";

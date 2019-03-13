@@ -1,12 +1,10 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 import Point from "./InterestPoint";
 
 
 export default class PointList extends Component {
 
-    constructor(props) {
-        super(props);
-    }
+
 
     render() {
 

@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
-import MapComponent from './Map'
-import PointList from './PointsList'
+import React, { Component } from "react";
+import MapComponent from "./Map";
+import PointList from "./PointsList";
 class MapView extends Component {
   constructor(props){
-    super(props)
+    super(props);
     this.state = {
       currentLatLng: {
         lat: 0,
@@ -21,7 +20,7 @@ class MapView extends Component {
 
   componentDidMount() {
     this.delayedShowMarker()
-    let markerList = []
+    let markerList = [];
             markerList.push({
 
                             description: "A ",
@@ -59,14 +58,14 @@ class MapView extends Component {
 
             })
             this.setState({markerList: markerList});
-            localStorage.setItem('Markers', markerList);
-            console.log(this.state.markerList)
+            localStorage.setItem("Markers", markerList);
+
   }
 
   delayedShowMarker = () => {
     setTimeout(() => {
       this.getGeoLocation()
-      this.setState({ isMarkerShown: true })
+      this.setState({ isMarkerShown: true });
     }, 5000)
   }
 
@@ -87,12 +86,12 @@ class MapView extends Component {
                               lng: position.coords.longitude
                           }
                       }))
-                      console.log('lat: '+this.state.currentLatLng.lat+'  long:'+this.state.currentLatLng.lng);
+
                   }
               )
           }
           else{
-            console.log('ERROR GETTING LOCATION');
+            console.log("ERROR GETTING LOCATION");
           }
 
       }
@@ -108,7 +107,7 @@ class MapView extends Component {
         markers= <PointList pointsList={this.state.markerList} />
       />
 
-    )
+    );
   }
 }
 
