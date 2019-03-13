@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { compose, withProps } from 'recompose'
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
 
@@ -24,5 +24,5 @@ const Map = compose(
 
 )
 
-export default Map
+export default Map;
 
