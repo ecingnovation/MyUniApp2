@@ -4,7 +4,7 @@ import DrawerAppBar from "../DrawerAppBar/DrawerAppBar";
 import "./PagesView.css";
 import { Route, Switch } from 'react-router-dom';
 import { RegisterTeacher } from "../Register/RegisterTeacher";
-import { RegisterStudent } from "../Register/RegisterStudent";
+import Map from "../ComponentsMap/MapView";
 
 export class PagesView extends React.Component {
     render() {
@@ -12,17 +12,20 @@ export class PagesView extends React.Component {
             <div>
                 <DrawerAppBar/>
                 <Switch>
-                    <Route exact path="/register/teacher" component={RegisterTeacherView}/>
-                    <Route path="/register/student" component={RegisterStudentView}/>
+                    <Route exact path="/app/register" component={RegisterTeacherView}/>
+                    <Route path="/app/map" component={MapView} />
                 </Switch>
+
             </div>
         );
     }
 }
 
+//TODO Este Register debe ser Unico
 const RegisterTeacherView = () => (
     <RegisterTeacher/>
 );
-const RegisterStudentView = () => (
-    <RegisterStudent/>
+
+const MapView = () => (
+        <Map />
 );

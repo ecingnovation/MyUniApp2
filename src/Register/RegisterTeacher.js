@@ -7,6 +7,8 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
 
 
 export class RegisterTeacher extends React.Component{
@@ -113,15 +115,34 @@ export class RegisterTeacher extends React.Component{
                                     onChange = {this.handleLastNameChange}
                                 />
                             </FormControl>
-                            <FormControl margin="normal" required fullWidth>
+                            <FormControl  margin="normal" required fullWidth>
                                 <InputLabel htmlFor="text">Faculty</InputLabel>
-                               <Input
-                                    id="faculty"
-                                    name="faculty"
-                                    autoComplete="faculty"
-                                    autoFocus
-                                    onChange = {this.handleFacultyChange}
-                                />
+                                <Select
+                                            value={this.state.faculty}
+                                            onChange={this.handleFacultyChange}
+                                            inputProps={{
+                                              name: 'faculty',
+                                              id: 'text',
+                                            }}
+                                          >
+                                            <MenuItem value="">
+                                              <em>None</em>
+                                            </MenuItem>
+                                            <MenuItem value={10}>Ingenieria civil </MenuItem>
+                                            <MenuItem value={20}>Ingenieria de sistemas</MenuItem>
+                                            <MenuItem value={30}>Ingenieria Ambiental</MenuItem>
+                                            <MenuItem value={40}>Ingenieria Biomedica </MenuItem>
+                                            <MenuItem value={50}>Ingenieria Mecanica</MenuItem>
+                                            <MenuItem value={60}>Ingenieria Electronica</MenuItem>
+                                            <MenuItem value={70}>Ingenieria Electrica</MenuItem>
+                                            <MenuItem value={80}>Ingenieria Electronica</MenuItem>
+                                            <MenuItem value={90}>Ingenieria Industrial</MenuItem>
+                                            <MenuItem value={100}>Economia</MenuItem>
+                                            <MenuItem value={110}>Administracion de empresas</MenuItem>
+                                            <MenuItem value={120}>Matematicas</MenuItem>
+
+                                </Select>
+
                             </FormControl>
                              <FormControl margin="normal" required fullWidth>
                                 <InputLabel htmlFor="text">Email</InputLabel>
@@ -133,16 +154,27 @@ export class RegisterTeacher extends React.Component{
                                     onChange = {this.handleEmailChange}
                                 />
                             </FormControl>
-                            <FormControl margin="normal" required fullWidth>
-                                <InputLabel htmlFor="text">Teacher Type</InputLabel>
-                               <Input
-                                    id="teachertype"
-                                    name="teachertype"
-                                    autoComplete="teachertype"
-                                    autoFocus
-                                    onChange = {this.handleteachertypeChange}
-                                />
+
+                            <FormControl  margin="normal" required fullWidth>
+                                 <InputLabel htmlFor="text">TeacherType</InputLabel>
+                                 <Select
+                                      value={this.state.teachertype}
+                                      onChange={this.handleteachertypeChange}
+                                      inputProps={{
+                                            name: 'teachertype',
+                                            id: 'text',
+                                            }}
+                                 >
+                                 <MenuItem value="">
+                                 <em>None</em>
+                                  </MenuItem>
+                                  <MenuItem value={10}>Catedra</MenuItem>
+                                  <MenuItem value={20}>Planta</MenuItem>
+
+                                  </Select>
+
                             </FormControl>
+                            
                             <FormControl margin="normal" required fullWidth>
                                 <InputLabel htmlFor="number">Phone</InputLabel>
                                 <Input
