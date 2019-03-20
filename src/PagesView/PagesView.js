@@ -1,4 +1,3 @@
-
 import React from "react";
 import DrawerAppBar from "../DrawerAppBar/DrawerAppBar";
 import "./PagesView.css";
@@ -7,6 +6,8 @@ import { Route, Switch } from 'react-router-dom';
 import { RegisterTeacher } from "../Register/RegisterTeacher";
 import { RegisterStudent } from "../Register/RegisterStudent";
 import { RegisterAdministrative } from "../Register/RegisterAdministrative";
+import Map from "../ComponentsMap/MapView";
+import NewsList from "../News/NewsList";
 
 export class PagesView extends React.Component {
     render() {
@@ -18,6 +19,8 @@ export class PagesView extends React.Component {
                     <Route exact path="/register/teacher" component={RegisterTeacherView}/>
                     <Route path="/register/student" component={RegisterStudentView}/>
                     <Route path="/register/administrative" component={RegisterAdministrativeView}/>
+                    <Route path="/app/map" component={MapView} />
+                    <Route path="/app/news" component={NewsListView}/>
                 </Switch>
             </div>
         );
@@ -33,4 +36,12 @@ const RegisterStudentView = () => (
 );
 const RegisterAdministrativeView = () => (
     <RegisterAdministrative/>
+);
+
+const MapView = () => (
+    <Map />
+);
+
+const NewsListView = () => (
+    <NewsList/>
 );

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import "./App.css";
 import { Login } from './Login/Login';
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -33,7 +33,6 @@ const LoginView = () => (
 const PagesViewView = () => (
     <PagesView/>
 );
-
 
 class App extends Component {
     render() {

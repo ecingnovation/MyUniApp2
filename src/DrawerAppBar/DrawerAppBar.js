@@ -6,15 +6,14 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
+import MailIcon from "@material-ui/icons/Mail";
 import Fastfood from "@material-ui/icons/Fastfood";
 import Place from "@material-ui/icons/Place";
-import Assignment from "@material-ui/icons/Assignment";
 import WebIcon from "@material-ui/icons/Web";
-import HelpIcon from "@material-ui/icons/Help";
 import MenuOutlined from "@material-ui/icons/MenuOutlined"
 import AccountBox from "@material-ui/icons/AccountBox";
 import { AppBar, Toolbar, Typography, IconButton } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import "./DrawerAppBar.css";
 
 class DrawerAppBar extends React.Component {
@@ -75,40 +74,29 @@ const sideList = (
                 <ListItemText primary="Santiago Carrillo" secondary="santiago.carrillo@mail.com" />
             </ListItem>
             <Divider/>
-            <ListItem button key="inbox">
+            <ListItem button key="map" component={Link} to="/app/map" >
                 <ListItemIcon>
                     <Place/>
                 </ListItemIcon>
                 <ListItemText primary="Mapa"/>
             </ListItem>
-            <ListItem button key="mail">
-                <ListItemIcon>
-                    <MailIcon/>
-                </ListItemIcon>
-                <ListItemText primary="Sitio" />
-            </ListItem>
-            <ListItem button key="mail">
-                <ListItemIcon>
-                    <Fastfood/>
-                </ListItemIcon>
-                <ListItemText primary="Kioskos" />
-            </ListItem><ListItem button key="mail">
-                <ListItemIcon>
-                    <Assignment/>
-                </ListItemIcon>
-                <ListItemText primary="Eventos" />
-            </ListItem>
-            <ListItem button key="mail">
+            <ListItem button key="news" component={Link} to="/app/news" >
                 <ListItemIcon>
                     <WebIcon/>
                 </ListItemIcon>
                 <ListItemText primary="Noticias" />
             </ListItem>
-            <ListItem button key="mail">
+            <ListItem button key="kioskos">
                 <ListItemIcon>
-                    <HelpIcon/>
+                    <Fastfood/>
                 </ListItemIcon>
-                <ListItemText primary="Diligencias" />
+                <ListItemText primary="Kioskos" />
+            </ListItem>
+            <ListItem button key="site">
+                <ListItemIcon>
+                    <MailIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Sitio" />
             </ListItem>
         </List>
     </div>
