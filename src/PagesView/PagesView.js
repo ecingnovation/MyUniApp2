@@ -5,6 +5,7 @@ import "./PagesView.css";
 import { Route, Switch } from 'react-router-dom';
 import { RegisterTeacher } from "../Register/RegisterTeacher";
 import Map from "../ComponentsMap/MapView";
+import NewsList from "../News/NewsList";
 
 export class PagesView extends React.Component {
     render() {
@@ -14,8 +15,8 @@ export class PagesView extends React.Component {
                 <Switch>
                     <Route exact path="/app/register" component={RegisterTeacherView}/>
                     <Route path="/app/map" component={MapView} />
+                    <Route path="/app/news" component={NewsListView}/>
                 </Switch>
-
             </div>
         );
     }
@@ -27,5 +28,9 @@ const RegisterTeacherView = () => (
 );
 
 const MapView = () => (
-        <Map />
+    <Map />
+);
+
+const NewsListView = () => (
+    <NewsList/>
 );
