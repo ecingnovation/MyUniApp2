@@ -8,6 +8,7 @@ import { RegisterStudent } from "../Register/RegisterStudent";
 import { RegisterAdministrative } from "../Register/RegisterAdministrative";
 import Map from "../ComponentsMap/MapView";
 import NewsList from "../News/NewsList";
+import { RegisterForm } from "../Register/RegisterForm";
 
 export class PagesView extends React.Component {
     render() {
@@ -29,7 +30,7 @@ export class PagesView extends React.Component {
 
 //TODO Este Register debe ser Unico
 const RegisterTeacherView = () => (
-    <RegisterTeacher/>
+    <RegisterForm/>
 );
 const RegisterStudentView = () => (
     <RegisterStudent/>

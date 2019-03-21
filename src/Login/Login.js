@@ -16,19 +16,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 
 export class Login extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-          registry: '',
-          
-        };
-    }
-    
-  handleRegistryChange = event => {
-    this.setState({
-        registry: event.target.value
-            });
-    }
     render() {
         return (
             <React.Fragment>
@@ -61,29 +48,7 @@ export class Login extends React.Component {
                                 Sign in
                             </Button>
                         </form>
-                        <FormControl  margin="normal" required fullWidth>
-                                <InputLabel htmlFor="text">Register</InputLabel>
-                                <Select
-                                            value={this.state.registry}
-                                            onChange={this.handleRegistryChange}
-                                            inputProps={{
-                                              name: 'registry',
-                                              id: 'text',
-                                            }}
-                                          >
-                                            <MenuItem value="">
-                                              <em>None</em>
-                                            </MenuItem>
-                                            <MenuItem containerElement={<Link to="../Register/RegisterTeacher" />} value={10}>Are you a Teacher? </MenuItem>
-                                            <MenuItem value={20}>Are you a Student? </MenuItem>
-                                            <MenuItem value={30}>Are you an Administrative? </MenuItem>
-                                    
-
-                                </Select>
-                                            
-                                      
-                        </FormControl>
-
+                        
 
                         <br></br>
                         <a href="/app/register">Register</a>
