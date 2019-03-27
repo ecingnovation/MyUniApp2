@@ -2,8 +2,6 @@ import React from "react";
 import DrawerAppBar from "../DrawerAppBar/DrawerAppBar";
 import "./PagesView.css";
 import { Route, Switch } from 'react-router-dom';
-
-import { RegisterTeacher } from "../Register/RegisterTeacher";
 import { RegisterStudent } from "../Register/RegisterStudent";
 import { RegisterAdministrative } from "../Register/RegisterAdministrative";
 import Map from "../ComponentsMap/MapView";

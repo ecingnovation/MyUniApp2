@@ -42,7 +42,7 @@ class DrawerAppBar extends React.Component {
                         <Typography variant="h6" color="inherit" className="grow" >
                             MyUniApp
                         </Typography>
-                        <Button color="inherit">Login</Button>
+                        <Button color="inherit">Logout</Button>
                     </Toolbar>
                 </AppBar>
                 <SwipeableDrawer

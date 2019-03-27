@@ -2,6 +2,7 @@ import React from "react";
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
+import CardMedia from "@material-ui/core/CardMedia";
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import "./NewsItem.css";
@@ -21,6 +22,11 @@ class NewsItem extends React.Component {
         } else {
             statusIcon = (<EventAvailableSharp className="status" color="primary" />);
         }
+        var padding = "15%";
+        if (this.props.cardInfo.imageURL === "") {
+            padding = "0%";
+        }
+        const mediaClass = {"height": 0, "paddingTop": padding};
         return (
             <div>
                 <Card className="card">
@@ -36,6 +42,11 @@ class NewsItem extends React.Component {
                                 {moment(this.props.cardInfo.date).format("DD-MM-YYYY HH:MM")}
                             </Typography>
                         }
+                    />
+                    <CardMedia 
+                        style={mediaClass}
+                        image={this.props.cardInfo.imageURL}
+                        title="Imagen Noticia"
                     />
                     <CardContent>
                         <Typography className="pos" color="textPrimary">

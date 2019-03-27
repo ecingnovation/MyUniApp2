@@ -8,12 +8,6 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import "./Login.css";
 import logof from './../logof.jpg';
-import { Link } from 'react-router-dom'
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
-
-
-
 
 export class Login extends React.Component {
     render() {
