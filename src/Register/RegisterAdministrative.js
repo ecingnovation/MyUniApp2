@@ -93,7 +93,7 @@ export class RegisterAdministrative extends React.Component{
                         <Avatar className="avatar">
                             <AssignmentIcon />
                         </Avatar>
-                        <Typography variant="headline">Register</Typography>
+                        <Typography variant="headline">Register Administrative</Typography>
                         <form className="form" onSubmit={this.handleRegister}>
                             <FormControl margin="normal" required fullWidth>
                                 <InputLabel htmlFor="text">Name</InputLabel>

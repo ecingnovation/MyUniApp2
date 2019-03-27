@@ -3,7 +3,9 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
-
+import { RegisterTeacher } from "../Register/RegisterTeacher";
+import { RegisterStudent } from "../Register/RegisterStudent";
+import { RegisterAdministrative } from "../Register/RegisterAdministrative";
 
 
 export class RegisterForm extends React.Component {
@@ -48,19 +50,35 @@ export class RegisterForm extends React.Component {
         );
         if (this.state.registry === 10){
             return(  
-                <div>
-                    {options}
-                    <h1>hola mundo Teacher </h1>
-                </div>
+                <section>
+                    <form>
+                        {options}
+                        <RegisterTeacher/>
+                    </form>              
+                </section>
+                
             );
 
         }
         if (this.state.registry === 20){
-            return(  <h1>hola mundo Student</h1>)
+            return(  
+                <section>
+                    <form>
+                        {options}
+                        <RegisterStudent/>
+                    </form>              
+                </section>
+            );
 
         }
         if (this.state.registry === 30){
-            return(  <h1>hola mundo Administrative</h1>)
+            return( 
+                <section>
+                    <form>
+                        {options}
+                        <RegisterAdministrative/>
+                    </form>              
+                </section> );
 
         }
         

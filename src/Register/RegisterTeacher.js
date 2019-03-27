@@ -146,6 +146,7 @@ export class RegisterTeacher extends React.Component{
                                 </Select>
 
                             </FormControl>
+                           
                              <FormControl margin="normal" required fullWidth>
                                 <InputLabel htmlFor="text">Email</InputLabel>
                                <Input
