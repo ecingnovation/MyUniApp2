@@ -23,7 +23,7 @@ class NewsItem extends React.Component {
             statusIcon = (<EventAvailableSharp className="status" color="primary" />);
         }
         var padding = "15%";
-        if (this.props.cardInfo.imageURL === "") {
+        if (this.props.cardInfo.imageURL === "undefined") {
             padding = "0%";
         }
         const mediaClass = {"height": 0, "paddingTop": padding};
