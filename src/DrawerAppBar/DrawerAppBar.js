@@ -86,6 +86,12 @@ const sideList = (
                 </ListItemIcon>
                 <ListItemText primary="Noticias" />
             </ListItem>
+            <ListItem button key="postnew" component={Link} to="/app/postnew" >
+                <ListItemIcon>
+                    <WebIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Publicar Noticia" />
+            </ListItem>
             <ListItem button key="kioskos">
                 <ListItemIcon>
                     <Fastfood/>

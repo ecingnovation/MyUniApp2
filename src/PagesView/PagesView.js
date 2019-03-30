@@ -6,6 +6,7 @@ import { RegisterStudent } from "../Register/RegisterStudent";
 import { RegisterAdministrative } from "../Register/RegisterAdministrative";
 import Map from "../ComponentsMap/MapView";
 import NewsList from "../News/NewsList";
+import AddNew from "../News/AddNewForm";
 import { RegisterForm } from "../Register/RegisterForm";
 
 export class PagesView extends React.Component {
@@ -20,6 +21,7 @@ export class PagesView extends React.Component {
                     <Route path="/register/administrative" component={RegisterAdministrativeView}/>
                     <Route path="/app/map" component={MapView} />
                     <Route path="/app/news" component={NewsListView}/>
+                    <Route path="/app/postnew" component={AddNewView}/>
                 </Switch>
             </div>
         );
@@ -43,4 +45,8 @@ const MapView = () => (
 
 const NewsListView = () => (
     <NewsList/>
+);
+
+const AddNewView = () => (
+    <AddNew/>
 );

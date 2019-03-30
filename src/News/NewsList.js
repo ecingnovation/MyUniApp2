@@ -29,7 +29,7 @@ class NewsList extends React.Component {
         }
     }
 
-    createAxiosInstance(/* token */) {
+    createAxiosInstance(token) {
         axiosInstance = axios.create({
             baseURL: apiURL,
             timeout: 1000,
