@@ -6,11 +6,27 @@ import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import { Redirect } from "react-router-dom";
+import axios from "axios";
 import "./Login.css";
 import logof from './../logof.jpg';
 
 export class Login extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
+
+        this.state = {
+            fireRedirect : false
+        }
+    }
+
     render() {
+        if (this.state.fireRedirect === true) {
+            return <Redirect to="/app/map"/>
+        }
+
         return (
             <React.Fragment>
                 <CssBaseline />
@@ -42,8 +58,6 @@ export class Login extends React.Component {
                                 Sign in
                             </Button>
                         </form>
-                        
-
                         <br></br>
                         <a href="/app/register">Register</a>
                     </Paper>
@@ -51,4 +65,46 @@ export class Login extends React.Component {
             </React.Fragment>
         );
     }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        var useremail = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+
+        axios.post(apiURL + "/accounts/login", {
+            id: useremail,
+            password: password
+        }).then((response) => {
+            console.log(response.data);
+            localStorage.setItem("token", response.data.accessToken);
+            this.createAxiosInstance(response.data.accessToken);
+            this.getBasicUserInfoAndRedirect(useremail);
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
+
+    createAxiosInstance(token) {
+        axiosInstance = axios.create({
+            baseURL: apiURL,
+            timeout: 1000,
+            headers: {'Authorization': 'Bearer '+ token}
+        });
+    }
+
+    getBasicUserInfoAndRedirect(mail) {
+        axiosInstance.get("/users/" + mail).then((response) => {
+            console.log(response.data);
+            localStorage.setItem("userName", response.data.name + " " + response.data.lastName);
+            localStorage.setItem("userMail", response.data.email);
+            this.setState({
+                fireRedirect: true
+            });
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
 }
+
+const apiURL = ((window.location.hostname === "localhost") ? "http://localhost:8080" : "https://myuniapp-back.herokuapp.com");
+var axiosInstance;
