@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import MapComponent from "./Map";
 import PointList from "./PointsList";
+import axios from "axios";
 class MapView extends Component {
   constructor(props){
     super(props);
@@ -12,6 +13,8 @@ class MapView extends Component {
       isMarkerShown: false,
       markerList:""
     }
+
+    this.createAxiosInstance();
   }
 
   componentWillUpdate(){
@@ -20,46 +23,15 @@ class MapView extends Component {
 
   componentDidMount() {
     this.delayedShowMarker()
-    let markerList = [];
-            markerList.push({
-
-                            description: "A ",
-                            title: "Title",
-                            currentLocation :{
-                                lat: 4.7827587,
-                                lng: -74.0427843
-                            },
-                            label:"A",
-                            Image: "IMAGE"
-
+    let markerList= [];
+    axios.get(apiURL + "/map/points").then((response) => {
+                console.log(response.data);
+                markerList= response.data;
+                this.setState({markerList: markerList});
+                localStorage.setItem("Markers", markerList);
+            }).catch((error) => {
+                console.log(error);
             })
-            markerList.push({
-
-                            description: "B ",
-                            title: "Title",
-                            currentLocation: {
-                                lat: 4.7828577,
-                                lng: -74.0427804
-                            },
-                            label:"B",
-                            Image: "IMAGE"
-
-            })
-            markerList.push({
-
-                            description: "C ",
-                            title: "Title",
-                            currentLocation: {
-                                lat: 4.7824575,
-                                lng: -74.0422877
-                            },
-                            label:"C",
-                            Image: "IMAGE"
-
-            })
-            this.setState({markerList: markerList});
-            localStorage.setItem("Markers", markerList);
-
   }
 
   delayedShowMarker = () => {
@@ -73,6 +45,14 @@ class MapView extends Component {
 
     this.delayedShowMarker()
   }
+
+  createAxiosInstance(token) {
+          axiosInstance = axios.create({
+              baseURL: apiURL,
+              timeout: 1000,
+              headers: {'Authorization': 'Bearer '+ token}
+          });
+      }
 
   getGeoLocation = () => {
           if (navigator.geolocation) {
@@ -112,3 +92,6 @@ class MapView extends Component {
 }
 
 export default MapView;
+
+const apiURL = ((window.location.hostname === "localhost") ? "http://localhost:8080" : "https://myuniapp-back.herokuapp.com");
+var axiosInstance;
