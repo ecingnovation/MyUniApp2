@@ -9,6 +9,7 @@ import Avatar from '@material-ui/core/Avatar';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
+import Button from '@material-ui/core/Button';
 
 
 
@@ -83,7 +84,7 @@ export class RegisterAdministrative extends React.Component{
   }
   
     render(){
-        const { classes } = this.props;
+        //const { classes } = this.props;
         return (
             <React.Fragment>
                 <CssBaseline />
@@ -92,7 +93,7 @@ export class RegisterAdministrative extends React.Component{
                         <Avatar className="avatar">
                             <AssignmentIcon />
                         </Avatar>
-                        <Typography variant="headline">Register</Typography>
+                        <Typography variant="headline">Register Administrative</Typography>
                         <form className="form" onSubmit={this.handleRegister}>
                             <FormControl margin="normal" required fullWidth>
                                 <InputLabel htmlFor="text">Name</InputLabel>
@@ -211,6 +212,16 @@ export class RegisterAdministrative extends React.Component{
                                     onChange = {this.handlePasswordConfirmationChange}
                                 />
                              </FormControl>
+                            <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                color="primary"
+                                className="submit"
+                                href="../Login/Login"                                
+                            >
+                               Submit !!
+                            </Button>         
                         </form>
                     </Paper>
                 </main>

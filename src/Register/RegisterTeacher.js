@@ -9,6 +9,8 @@ import Avatar from '@material-ui/core/Avatar';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
+import Button from '@material-ui/core/Button';
+
 
 
 export class RegisterTeacher extends React.Component{
@@ -144,6 +146,7 @@ export class RegisterTeacher extends React.Component{
                                 </Select>
 
                             </FormControl>
+                           
                              <FormControl margin="normal" required fullWidth>
                                 <InputLabel htmlFor="text">Email</InputLabel>
                                <Input
@@ -215,6 +218,19 @@ export class RegisterTeacher extends React.Component{
                                     onChange = {this.handlePasswordConfirmationChange}
                                 />
                              </FormControl>
+                             
+                             <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                color="primary"
+                                className="submit"
+                                href="../Login/Login"                                
+                            >
+                               Submit !!
+                            </Button>             
+
+
                         </form>
                     </Paper>
                 </main>

@@ -9,12 +9,11 @@ import ListItemText from '@material-ui/core/ListItemText';
 import MailIcon from "@material-ui/icons/Mail";
 import Fastfood from "@material-ui/icons/Fastfood";
 import Place from "@material-ui/icons/Place";
-import Assignment from "@material-ui/icons/Assignment";
 import WebIcon from "@material-ui/icons/Web";
-import HelpIcon from "@material-ui/icons/Help";
 import MenuOutlined from "@material-ui/icons/MenuOutlined"
 import AccountBox from "@material-ui/icons/AccountBox";
 import { AppBar, Toolbar, Typography, IconButton } from "@material-ui/core";
+import { Link, Redirect } from "react-router-dom";
 import "./DrawerAppBar.css";
 
 class DrawerAppBar extends React.Component {
@@ -32,7 +31,63 @@ class DrawerAppBar extends React.Component {
         });
     };
 
+    handleLogout = () => {
+        console.log("Logged Out");
+        localStorage.setItem("token", "undefined");
+        localStorage.removeItem("userName");
+        localStorage.removeItem("userMail");
+        this.setState({
+            logout : true
+        })
+    };
+
     render() {
+        var sideList = (
+            <div>
+                <List>
+                    <ListItem button key="user" >
+                        <ListItemIcon>
+                            <AccountBox className="accountIcon" />
+                        </ListItemIcon>
+                        <ListItemText primary={localStorage.getItem("userName")} secondary={localStorage.getItem("userMail")} />
+                    </ListItem>
+                    <Divider/>
+                    <ListItem button key="map" component={Link} to="/app/map" >
+                        <ListItemIcon>
+                            <Place/>
+                        </ListItemIcon>
+                        <ListItemText primary="Mapa"/>
+                    </ListItem>
+                    <ListItem button key="news" component={Link} to="/app/news" >
+                        <ListItemIcon>
+                            <WebIcon/>
+                        </ListItemIcon>
+                        <ListItemText primary="Noticias" />
+                    </ListItem>
+                    <ListItem button key="postnew" component={Link} to="/app/postnew" >
+                        <ListItemIcon>
+                            <WebIcon/>
+                        </ListItemIcon>
+                        <ListItemText primary="Publicar Noticia" />
+                    </ListItem>
+                    <ListItem button key="kioskos">
+                        <ListItemIcon>
+                            <Fastfood/>
+                        </ListItemIcon>
+                        <ListItemText primary="Kioskos" />
+                    </ListItem>
+                    <ListItem button key="site">
+                        <ListItemIcon>
+                            <MailIcon/>
+                        </ListItemIcon>
+                        <ListItemText primary="Sitio" />
+                    </ListItem>
+                </List>
+            </div>
+        );
+        if (this.state.logout === true) {
+            return <Redirect to="/"/>
+        }
         return (
             <div>
                 <AppBar title="My App" position="relative">
@@ -43,7 +98,7 @@ class DrawerAppBar extends React.Component {
                         <Typography variant="h6" color="inherit" className="grow" >
                             MyUniApp
                         </Typography>
-                        <Button color="inherit">Login</Button>
+                        <Button color="inherit" onClick={this.handleLogout}>Logout</Button>
                     </Toolbar>
                 </AppBar>
                 <SwipeableDrawer
@@ -64,55 +119,6 @@ class DrawerAppBar extends React.Component {
         );
     }
 }
-
-const sideList = (
-    <div>
-        <List>
-            <ListItem button key="user" >
-                <ListItemIcon>
-                    <AccountBox className="accountIcon" />
-                </ListItemIcon>
-                <ListItemText primary="Santiago Carrillo" secondary="santiago.carrillo@mail.com" />
-            </ListItem>
-            <Divider/>
-            <ListItem button key="inbox">
-                <ListItemIcon>
-                    <Place/>
-                </ListItemIcon>
-                <ListItemText primary="Mapa"/>
-            </ListItem>
-            <ListItem button key="mail">
-                <ListItemIcon>
-                    <MailIcon/>
-                </ListItemIcon>
-                <ListItemText primary="Sitio" />
-            </ListItem>
-            <ListItem button key="mail">
-                <ListItemIcon>
-                    <Fastfood/>
-                </ListItemIcon>
-                <ListItemText primary="Kioskos" />
-            </ListItem><ListItem button key="mail">
-                <ListItemIcon>
-                    <Assignment/>
-                </ListItemIcon>
-                <ListItemText primary="Eventos" />
-            </ListItem>
-            <ListItem button key="mail">
-                <ListItemIcon>
-                    <WebIcon/>
-                </ListItemIcon>
-                <ListItemText primary="Noticias" />
-            </ListItem>
-            <ListItem button key="mail">
-                <ListItemIcon>
-                    <HelpIcon/>
-                </ListItemIcon>
-                <ListItemText primary="Diligencias" />
-            </ListItem>
-        </List>
-    </div>
-);
 
 const styles = {
     root: {
