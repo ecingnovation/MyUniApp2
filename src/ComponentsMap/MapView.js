@@ -15,6 +15,15 @@ class MapView extends Component {
     }
 
     this.createAxiosInstance();
+    let markerList= [];
+        axios.get(apiURL + "/map/points").then((response) => {
+                    console.log(response.data);
+                    markerList= response.data;
+                    this.setState({markerList: markerList});
+                    localStorage.setItem("Markers", markerList);
+                }).catch((error) => {
+                    console.log(error);
+                })
   }
 
   componentWillUpdate(){
@@ -23,15 +32,7 @@ class MapView extends Component {
 
   componentDidMount() {
     this.delayedShowMarker()
-    let markerList= [];
-    axios.get(apiURL + "/map/points").then((response) => {
-                console.log(response.data);
-                markerList= response.data;
-                this.setState({markerList: markerList});
-                localStorage.setItem("Markers", markerList);
-            }).catch((error) => {
-                console.log(error);
-            })
+
   }
 
   delayedShowMarker = () => {
