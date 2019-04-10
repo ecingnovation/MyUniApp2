@@ -11,8 +11,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 
-
-
 export class RegisterAdministrative extends React.Component{
     constructor(props){
       super(props);
@@ -24,7 +22,6 @@ export class RegisterAdministrative extends React.Component{
         dependency : '',
         password : '',
         passwordConfirmation : ''
-        
       };
 
       this.handleRegister = this.handleRegister.bind(this);
@@ -65,8 +62,6 @@ export class RegisterAdministrative extends React.Component{
           phone: event.target.value
       });
   }
-
-
 
   handlePasswordChange = event => {
       this.setState({

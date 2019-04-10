@@ -54,7 +54,6 @@ class NewsList extends React.Component {
             console.log(error);
         });
     }
-
 }
 
 export default NewsList;

@@ -21,17 +21,13 @@ const styles = theme => ({
 
 class InterestPoint extends React.Component {
 
-
     constructor(props) {
-                  super(props);
-
-                  this.state = {
-                              isOpen:false,
-                          };
-
-              }
+        super(props);
+        this.state = {
+            isOpen:false,
+        };
+    }
     render(){
-
         return (
             <Marker position={{ lat: this.props.lat, lng: this.props.lng }} onClick={this.handleToggle} label={this.props.label} >
                 {this.state.isOpen &&
@@ -44,19 +40,18 @@ class InterestPoint extends React.Component {
             </Marker>
         );
     }
+
     handleToggle = () => {
     	this.setState({
     		isOpen: !false
     	});
     }
 
-        handleToggleClose = () => {
-            this.setState({
-                isOpen: false
-            });
-        }
+    handleToggleClose = () => {
+        this.setState({
+            isOpen: false
+        });
+    }
 }
-
-
 
 export default withStyles(styles, { withTheme: true })(InterestPoint);
