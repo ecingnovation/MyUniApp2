@@ -1,0 +1,19 @@
+.layout {
+    width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.paper {
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+}
+
+.registericon {
+    transform: scale(3.5);
+    margin: 30px;
+}

@@ -33,14 +33,14 @@ export class Login extends React.Component {
                 <main className="layout">
                     <Paper className="paper">
                         <img src={logof} alt="logo" className="img"/> 
-                        <Typography variant="h5">Sign in</Typography>
+                        <Typography variant="h5">Acceder</Typography>
                         <form className="form" onSubmit={this.handleSubmit} name="login-form">
                             <FormControl margin="normal" required fullWidth>
-                                <InputLabel htmlFor="email">Email Address</InputLabel>
+                                <InputLabel htmlFor="email">Dirección de correo</InputLabel>
                                 <Input id="email" name="email" autoComplete="email" autoFocus />
                             </FormControl>
                             <FormControl margin="normal" required fullWidth>
-                                <InputLabel htmlFor="password">Password</InputLabel>
+                                <InputLabel htmlFor="password">Contraseña</InputLabel>
                                 <Input
                                     name="password"
                                     type="password"
@@ -55,11 +55,11 @@ export class Login extends React.Component {
                                 color="primary"
                                 className="submit"
                             >
-                                Sign in
+                                Acceder
                             </Button>
                         </form>
                         <br></br>
-                        <a href="/app/register">Register</a>
+                        <a href="/app/register">Registrarse</a>
                     </Paper>
                 </main>
             </React.Fragment>
