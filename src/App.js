@@ -4,6 +4,7 @@ import { Login } from './Login/Login';
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { PagesView } from "./PagesView/PagesView";
+import { RegisterForm } from "./Register/RegisterForm"
 
 const theme = createMuiTheme({
     palette: {
@@ -34,6 +35,10 @@ const PagesViewView = () => (
     <PagesView/>
 );
 
+const RegisterView = () => (
+    <RegisterForm/>
+);
+
 class App extends Component {
     render() {
         return (
@@ -43,6 +48,7 @@ class App extends Component {
                     <Router>
                         <div>
                             <Route exact path="/" component={LoginView}/>
+                            <Route path="/register" component={RegisterView}/>
                             <Route path="/app" component={PagesViewView}/>
                         </div>
                     </Router>
