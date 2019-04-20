@@ -1,81 +1,81 @@
-import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import FormControl from '@material-ui/core/FormControl';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import AssignmentIcon from '@material-ui/icons/Assignment';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
-import Button from '@material-ui/core/Button';
+import React from "react";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import FormControl from "@material-ui/core/FormControl";
+import Input from "@material-ui/core/Input";
+import InputLabel from "@material-ui/core/InputLabel";
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
+import AssignmentIcon from "@material-ui/icons/Assignment";
+import MenuItem from "@material-ui/core/MenuItem";
+import Select from "@material-ui/core/Select";
+import Button from "@material-ui/core/Button";
 
 export class RegisterTeacher extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            name : '',
-            lastName : '',
-            email : '',
-            faculty : '',
-            teachertype: '',
-            phone : '',
-            address : '',
-            password : '',
-            passwordConfirmation : ''
+            name : "",
+            lastName : "",
+            email : "",
+            faculty : "",
+            teachertype: "",
+            phone : "",
+            address : "",
+            password : "",
+            passwordConfirmation : ""
         };
         this.handleRegister = this.handleRegister.bind(this);
     }
 
-    handleNameChange = event => {
+    handleNameChange = (event) => {
         this.setState({
             name: event.target.value
         });
     }
 
-    handleLastNameChange = event => {
+    handleLastNameChange = (event) => {
         this.setState({
             lastName: event.target.value
         });
     }
 
-    handleEmailChange = event => {
+    handleEmailChange = (event) => {
         this.setState({
             email: event.target.value
         });
     }
     
-    handleFacultyChange = event => {
+    handleFacultyChange = (event) => {
         this.setState({
             faculty: event.target.value
         });
     }
     
-    handleTeacherTypeChange = event => {
+    handleTeacherTypeChange = (event) => {
         this.setState({
             teachertype: event.target.value
         });
     }
 
-    handlePhoneChange = event => {
+    handlePhoneChange = (event) => {
         this.setState({
             phone: event.target.value
         });
     }
 
-    handleAddressChange = event => {
+    handleAddressChange = (event) => {
         this.setState({
             address: event.target.value
         });
     }
 
-    handlePasswordChange = event => {
+    handlePasswordChange = (event) => {
         this.setState({
             password: event.target.value
         });
     }
 
-    handlePasswordConfirmationChange = event => {
+    handlePasswordConfirmationChange = (event) => {
         this.setState({
             passwordConfirmation: event.target.value
         });
@@ -116,8 +116,8 @@ export class RegisterTeacher extends React.Component{
                                     value={this.state.faculty}
                                     onChange={this.handleFacultyChange}
                                     inputProps={{
-                                        name: 'faculty',
-                                        id: 'text',
+                                        name: "faculty",
+                                        id: "text",
                                     }}
                                     >
                                     <MenuItem value="">
@@ -152,8 +152,8 @@ export class RegisterTeacher extends React.Component{
                                     value={this.state.teachertype}
                                     onChange={this.handleteachertypeChange}
                                     inputProps={{
-                                        name: 'teachertype',
-                                        id: 'text',
+                                        name: "teachertype",
+                                        id: "text",
                                         }}
                                 >
                                 <MenuItem value="">

@@ -1,8 +1,8 @@
 import React from "react";
-import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
 import { RegisterTeacher } from "../Register/RegisterTeacher";
 import { RegisterStudent } from "../Register/RegisterStudent";
 import { RegisterAdministrative } from "../Register/RegisterAdministrative";
@@ -13,7 +13,7 @@ export class RegisterForm extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            registry: '',
+            registry: "",
         };
         this.handleRegistryChange = this.handleRegistryChange.bind(this);
     }   
@@ -23,7 +23,7 @@ export class RegisterForm extends React.Component {
             registry: event.target.value
             
         });
-        console.log(this.state.registry)
+        console.log(this.state.registry);
     }
     
     render() {
@@ -38,8 +38,8 @@ export class RegisterForm extends React.Component {
                                 onChange={this.handleRegistryChange}
                                 value={this.state.registry}
                                 inputProps={{
-                                    name: 'registry',
-                                    id: 'text',
+                                    name: "registry",
+                                    id: "text",
                                 }} 
                                 >
                                 <MenuItem value="1">

@@ -2,7 +2,7 @@ import React from "react";
 import {withStyles} from "@material-ui/core/styles";
 import { Marker, InfoWindow } from "react-google-maps";
 
-const styles = theme => ({
+const styles = (theme) => ({
     card: {
         display: "flex",
         marginBottom: 15
@@ -41,9 +41,9 @@ class InterestPoint extends React.Component {
         );
     }
     handleToggle = () => {
-    	this.setState({
-    		isOpen: !false
-    	});
+        this.setState({
+            isOpen: !false
+        });
     }
 
     handleToggleClose = () => {

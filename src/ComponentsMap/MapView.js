@@ -13,7 +13,7 @@ class MapView extends Component {
         },
         isMarkerShown: false,
         markerList:""
-        }
+        };
         this.createAxiosInstance();
     }
 
@@ -22,7 +22,7 @@ class MapView extends Component {
     }
 
     componentDidMount() {
-        this.delayedShowMarker()
+        this.delayedShowMarker();
         let markerList= [];
         axios.get(apiURL + "/map/points").then((response) => {
                 console.log(response.data);
@@ -32,7 +32,7 @@ class MapView extends Component {
             }).catch((error) => {
                 console.log(error);
             }
-        )
+        );
     }
 
     delayedShowMarker = () => {
@@ -50,16 +50,16 @@ class MapView extends Component {
         axiosInstance = axios.create({
             baseURL: apiURL,
             timeout: 1000,
-            headers: {'Authorization': 'Bearer ' + token}
+            headers: {"Authorization": "Bearer " + token}
         });
     }
 
     getGeoLocation = () => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
-                position => {
+                (position) => {
                     //console.log(position.coords);
-                    this.setState(prevState => ({
+                    this.setState( (prevState) => ({
                         currentLatLng: {
                             ...prevState.currentLatLng,
                             lat: position.coords.latitude,
