@@ -1,15 +1,15 @@
 import React from "react";
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import FormControl from '@material-ui/core/FormControl';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import FormControl from "@material-ui/core/FormControl";
+import Input from "@material-ui/core/Input";
+import InputLabel from "@material-ui/core/InputLabel";
 import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
+import Typography from "@material-ui/core/Typography";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 import "./Login.css";
-import logof from './../logof.jpg';
+import logof from "./../logof.jpg";
 
 export class Login extends React.Component {
 
@@ -19,12 +19,12 @@ export class Login extends React.Component {
 
         this.state = {
             fireRedirect : false
-        }
+        };
     }
 
     render() {
         if (this.state.fireRedirect === true) {
-            return <Redirect to="/app/map"/>
+            return (<Redirect to="/app/map"/>);
         }
 
         return (
@@ -81,14 +81,14 @@ export class Login extends React.Component {
             this.getBasicUserInfoAndRedirect(useremail);
         }).catch((error) => {
             console.log(error);
-        })
+        });
     }
 
     createAxiosInstance(token) {
         axiosInstance = axios.create({
             baseURL: apiURL,
             timeout: 1000,
-            headers: {'Authorization': 'Bearer '+ token}
+            headers: {"Authorization": "Bearer " + token}
         });
     }
 
