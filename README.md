@@ -1,70 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# MyUniApp
 
-## Available Scripts
+![](src/logof.jpg)
+
+MyUniApp es una aplicación pensada para simplificar la vida universitaria, brindando información al usuario de su ubicación, noticias y lugares relacionados con la universidad.
+
+Es una Progressive Web App basada en ReactJS para la asignatura Innovación y Emprendimiento TI del programa de Ingeniería de Sistemas para la línea Ingeniería de Software de la Escuela Colombiana de Ingeniería Julio Garavito.
+
+## Integrantes del Equipo
+
+- Daniel Ospina
+- Tiffany Estupiñan
+- Martin Cantor
+- Oscar Pinto
+
+## Vista Previa
+
+La aplicación esta disponible en: [MyUniApp](https://myuniapp-eci.firebaseapp.com/)
+
+## Funcionalidades
+
+- Mapa con Puntos Interesantes de la Universidad
+- Noticias y publicación de Noticias
+- Diligencias
+- Registro y Login
+
+## Información de Código Fuente
+
+### Tecnologías Utilizadas
+
+- ReactJS
+- Spring Boot
+- Mongo DB
+
+### Repositorios Adicionales
+
+- Backend API Rest: [https://github.com/ecingnovation/MyUniAppBack](https://github.com/ecingnovation/MyUniAppBack)
+- Android App: [https://github.com/ecingnovation/MyUniAppAndroid](https://github.com/ecingnovation/MyUniAppAndroid)
+
+### Reporte de Calidad de Código - Codacy
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d284724bb4384ff0abd1797479af7916)](https://app.codacy.com/app/TheBaphomet666/MyUniApp2?utm_source=github.com&utm_medium=referral&utm_content=ecingnovation/MyUniApp2&utm_campaign=Badge_Grade_Dashboard)
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
