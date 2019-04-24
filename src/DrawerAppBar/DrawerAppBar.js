@@ -1,16 +1,16 @@
-import React from 'react';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+import React from "react";
+import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
+import Button from "@material-ui/core/Button";
+import List from "@material-ui/core/List";
+import Divider from "@material-ui/core/Divider";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
 import MailIcon from "@material-ui/icons/Mail";
 import Fastfood from "@material-ui/icons/Fastfood";
 import Place from "@material-ui/icons/Place";
 import WebIcon from "@material-ui/icons/Web";
-import MenuOutlined from "@material-ui/icons/MenuOutlined"
+import MenuOutlined from "@material-ui/icons/MenuOutlined";
 import AccountBox from "@material-ui/icons/AccountBox";
 import { AppBar, Toolbar, Typography, IconButton } from "@material-ui/core";
 import { Link, Redirect } from "react-router-dom";
@@ -38,7 +38,7 @@ class DrawerAppBar extends React.Component {
         localStorage.removeItem("userMail");
         this.setState({
             logout : true
-        })
+        });
     };
 
     render() {
@@ -86,13 +86,13 @@ class DrawerAppBar extends React.Component {
             </div>
         );
         if (this.state.logout === true) {
-            return <Redirect to="/"/>
+            return (<Redirect to="/"/>);
         }
         return (
             <div>
                 <AppBar title="My App" position="relative">
                     <Toolbar>
-                        <IconButton style={styles.menuButton} onClick={this.toggleDrawer('left', true)} >
+                        <IconButton style={styles.menuButton} onClick={this.toggleDrawer("left", true)} >
                             <MenuOutlined />
                         </IconButton>
                         <Typography variant="h6" color="inherit" className="grow" >
@@ -103,14 +103,14 @@ class DrawerAppBar extends React.Component {
                 </AppBar>
                 <SwipeableDrawer
                     open={this.state.left}
-                    onClose={this.toggleDrawer('left', false)}
-                    onOpen={this.toggleDrawer('left', true)}
+                    onClose={this.toggleDrawer("left", false)}
+                    onOpen={this.toggleDrawer("left", true)}
                 >
                 <div
                     tabIndex={0}
                     role="button"
-                    onClick={this.toggleDrawer('left', false)}
-                    onKeyDown={this.toggleDrawer('left', false)}
+                    onClick={this.toggleDrawer("left", false)}
+                    onKeyDown={this.toggleDrawer("left", false)}
                 >
                     {sideList}
                 </div>

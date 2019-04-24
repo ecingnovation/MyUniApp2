@@ -1,15 +1,15 @@
 import React from "react";
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import FormControl from '@material-ui/core/FormControl';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import FormControl from "@material-ui/core/FormControl";
+import Input from "@material-ui/core/Input";
+import InputLabel from "@material-ui/core/InputLabel";
 import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
+import Typography from "@material-ui/core/Typography";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 import "./Login.css";
-import logof from './../logof.jpg';
+import logof from "./../logof.jpg";
 
 export class Login extends React.Component {
 
@@ -19,12 +19,12 @@ export class Login extends React.Component {
 
         this.state = {
             fireRedirect : false
-        }
+        };
     }
 
     render() {
         if (this.state.fireRedirect === true) {
-            return <Redirect to="/app/map"/>
+            return (<Redirect to="/app/map"/>);
         }
 
         return (
@@ -33,14 +33,14 @@ export class Login extends React.Component {
                 <main className="layout">
                     <Paper className="paper">
                         <img src={logof} alt="logo" className="img"/> 
-                        <Typography variant="h5">Sign in</Typography>
+                        <Typography variant="h5">Acceder</Typography>
                         <form className="form" onSubmit={this.handleSubmit} name="login-form">
                             <FormControl margin="normal" required fullWidth>
-                                <InputLabel htmlFor="email">Email Address</InputLabel>
+                                <InputLabel htmlFor="email">Dirección de correo</InputLabel>
                                 <Input id="email" name="email" autoComplete="email" autoFocus />
                             </FormControl>
                             <FormControl margin="normal" required fullWidth>
-                                <InputLabel htmlFor="password">Password</InputLabel>
+                                <InputLabel htmlFor="password">Contraseña</InputLabel>
                                 <Input
                                     name="password"
                                     type="password"
@@ -55,11 +55,11 @@ export class Login extends React.Component {
                                 color="primary"
                                 className="submit"
                             >
-                                Sign in
+                                Acceder
                             </Button>
                         </form>
                         <br></br>
-                        <a href="/app/register">Register</a>
+                        <a href="/register">Registrarse</a>
                     </Paper>
                 </main>
             </React.Fragment>
@@ -73,7 +73,7 @@ export class Login extends React.Component {
 
         axios.post(apiURL + "/accounts/login", {
             id: useremail,
-            password: password
+            password
         }).then((response) => {
             console.log(response.data);
             localStorage.setItem("token", response.data.accessToken);
@@ -81,14 +81,14 @@ export class Login extends React.Component {
             this.getBasicUserInfoAndRedirect(useremail);
         }).catch((error) => {
             console.log(error);
-        })
+        });
     }
 
     createAxiosInstance(token) {
         axiosInstance = axios.create({
             baseURL: apiURL,
             timeout: 1000,
-            headers: {'Authorization': 'Bearer '+ token}
+            headers: {"Authorization": "Bearer " + token}
         });
     }
 

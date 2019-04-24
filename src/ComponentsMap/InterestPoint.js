@@ -2,7 +2,7 @@ import React from "react";
 import {withStyles} from "@material-ui/core/styles";
 import { Marker, InfoWindow } from "react-google-maps";
 
-const styles = theme => ({
+const styles = (theme) => ({
     card: {
         display: "flex",
         marginBottom: 15
@@ -20,24 +20,20 @@ const styles = theme => ({
 });
 
 class InterestPoint extends React.Component {
-
-
     constructor(props) {
-                  super(props);
+        super(props);
+        this.state = {
+            isOpen:false,
+        };
+    }
 
-                  this.state = {
-                              isOpen:false,
-                          };
-
-              }
     render(){
-
         return (
             <Marker position={{ lat: this.props.lat, lng: this.props.lng }} onClick={this.handleToggle} label={this.props.label} >
                 {this.state.isOpen &&
                     <InfoWindow
-                            onCloseClick={this.handleToggleClose}
-                            >
+                        onCloseClick={this.handleToggleClose}
+                    >
                         <span>Description: {this.props.description} </span>
                     </InfoWindow>
                 }
@@ -45,18 +41,16 @@ class InterestPoint extends React.Component {
         );
     }
     handleToggle = () => {
-    	this.setState({
-    		isOpen: !false
-    	});
+        this.setState({
+            isOpen: !false
+        });
     }
 
-        handleToggleClose = () => {
-            this.setState({
-                isOpen: false
-            });
-        }
+    handleToggleClose = () => {
+        this.setState({
+            isOpen: false
+        });
+    }
 }
-
-
 
 export default withStyles(styles, { withTheme: true })(InterestPoint);

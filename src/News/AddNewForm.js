@@ -1,14 +1,14 @@
 import React from "react";
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormControl from '@material-ui/core/FormControl';
-import Button from '@material-ui/core/Button';
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
+import Input from "@material-ui/core/Input";
+import InputLabel from "@material-ui/core/InputLabel";
+import FormControl from "@material-ui/core/FormControl";
+import Button from "@material-ui/core/Button";
 import PresentToAll from "@material-ui/icons/PresentToAll";
 import { MuiPickersUtilsProvider, DatePicker } from "material-ui-pickers";
-import DateFnsUtils from '@date-io/date-fns';
+import DateFnsUtils from "@date-io/date-fns";
 import esLocale from "date-fns/locale/es";
 import { Select, MenuItem, TextField } from "@material-ui/core";
 import NewsItem from "./NewsItem";
@@ -31,7 +31,7 @@ class AddNewForm extends React.Component {
             type : "",
             imageURL : "undefined",
             fireRedirect : false
-        }
+        };
     }
 
     handleChange = (event) => {
@@ -71,7 +71,7 @@ class AddNewForm extends React.Component {
 
     render() {
         if (this.state.fireRedirect === true) {
-            return <Redirect to="/app/news"/>
+            return (<Redirect to="/app/news"/>);
         }
 
         return (
