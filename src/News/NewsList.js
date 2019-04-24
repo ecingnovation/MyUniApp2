@@ -8,7 +8,7 @@ class NewsList extends React.Component {
         super(props);
         this.state = {
             loaded : false,
-        }
+        };
     }
 
     render() {
