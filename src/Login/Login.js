@@ -73,7 +73,7 @@ export class Login extends React.Component {
 
         axios.post(apiURL + "/accounts/login", {
             id: useremail,
-            password: password
+            password
         }).then((response) => {
             console.log(response.data);
             localStorage.setItem("token", response.data.accessToken);
