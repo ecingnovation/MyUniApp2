@@ -33,7 +33,7 @@ class NewsList extends React.Component {
         axiosInstance = axios.create({
             baseURL: apiURL,
             timeout: 1000,
-            headers: {'Authorization': 'Bearer ' + token}
+            headers: {"Authorization": "Bearer " + token}
         });
     }
 
