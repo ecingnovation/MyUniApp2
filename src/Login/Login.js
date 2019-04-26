@@ -20,6 +20,7 @@ export class Login extends React.Component {
         this.state = {
             fireRedirect : false
         };
+        console.log("Currently using API: " + apiURL);
     }
 
     render() {
