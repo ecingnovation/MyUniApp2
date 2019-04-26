@@ -9,12 +9,11 @@ class NewsList extends React.Component {
         this.state = {
             loaded : false,
         };
+        this.createAxiosInstance();
     }
 
     render() {
         if (this.state.loaded === false) {
-            console.log("Currently using API: " + apiURL);
-            this.createAxiosInstance();
             this.getNewsFromApi();
             return(
                 <h1>Loading!</h1>
@@ -29,11 +28,12 @@ class NewsList extends React.Component {
         }
     }
 
-    createAxiosInstance(token) {
+    createAxiosInstance() {
+        var token = localStorage.getItem("token");
         axiosInstance = axios.create({
             baseURL: apiURL,
             timeout: 1000,
-            // headers: {'Authorization': 'Bearer '+ token} //TODO When token is implemented
+            headers: {"Authorization": "Bearer " + token}
         });
     }
 

@@ -8,10 +8,10 @@ Es una Progressive Web App basada en ReactJS para la asignatura Innovación y Em
 
 ## Integrantes del Equipo
 
-- Daniel Ospina
-- Tiffany Estupiñan
-- Martin Cantor
-- Oscar Pinto
+-   Daniel Ospina
+-   Tiffany Estupiñan
+-   Martin Cantor
+-   Oscar Pinto
 
 ## Vista Previa
 
@@ -19,23 +19,23 @@ La aplicación esta disponible en: [MyUniApp](https://myuniapp-eci.firebaseapp.c
 
 ## Funcionalidades
 
-- Mapa con Puntos Interesantes de la Universidad
-- Noticias y publicación de Noticias
-- Diligencias
-- Registro y Login
+-   Mapa con Puntos Interesantes de la Universidad
+-   Noticias y publicación de Noticias
+-   Diligencias
+-   Registro y Login
 
 ## Información de Código Fuente
 
 ### Tecnologías Utilizadas
 
-- ReactJS
-- Spring Boot
-- Mongo DB
+-   ReactJS
+-   Spring Boot
+-   Mongo DB
 
 ### Repositorios Adicionales
 
-- Backend API Rest: [https://github.com/ecingnovation/MyUniAppBack](https://github.com/ecingnovation/MyUniAppBack)
-- Android App: [https://github.com/ecingnovation/MyUniAppAndroid](https://github.com/ecingnovation/MyUniAppAndroid)
+-   Backend API Rest: [https://github.com/ecingnovation/MyUniAppBack](https://github.com/ecingnovation/MyUniAppBack)
+-   Android App: [https://github.com/ecingnovation/MyUniAppAndroid](https://github.com/ecingnovation/MyUniAppAndroid)
 
 ### Reporte de Calidad de Código - Codacy
 
