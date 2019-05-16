@@ -70,11 +70,17 @@ class DrawerAppBar extends React.Component {
                         </ListItemIcon>
                         <ListItemText primary="Publicar Noticia" />
                     </ListItem>
-                    <ListItem button key="kioskos">
+                    <ListItem button key="kioskos" component={Link} to="/app/kioskos">
                         <ListItemIcon>
                             <Fastfood/>
                         </ListItemIcon>
                         <ListItemText primary="Kioskos" />
+                    </ListItem>
+                    <ListItem button key="postProducto" component={Link} to="/app/postKiosko" >
+                        <ListItemIcon>
+                            <Fastfood/>
+                        </ListItemIcon>
+                        <ListItemText primary="Publicar Producto" />
                     </ListItem>
                     <ListItem button key="site">
                         <ListItemIcon>
