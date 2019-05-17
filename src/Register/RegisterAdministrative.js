@@ -15,6 +15,7 @@ import axios from "axios";
 export class RegisterAdministrative extends React.Component{
     constructor(props){
         super(props);
+        this.createAxiosInstance();
         this.state = {
             name : "",
             lastName : "",
@@ -72,15 +73,14 @@ export class RegisterAdministrative extends React.Component{
 
     handleRegister = (event) => {
         event.preventDefault();
-        axiosInstance.post("/users/createadmin", {
-        name : this.state.name,
-        lastName : this.state.lastName,
-        dependency : this.state.dependency,
-        email : this.state.email,
-        phone : this.state.phone,
-        address : this.state.address,
-        password : this.state.password,
-
+        axiosInstance.post("/users/createadministrative", {
+            name : this.state.name,
+            lastName : this.state.lastName,
+            dependency : this.state.dependency,
+            email : this.state.email,
+            phone : this.state.phone,
+            address : this.state.address,
+            password : this.state.password
         }).then((response) => {
             this.setState({
                 fireRedirect : true
@@ -98,7 +98,7 @@ export class RegisterAdministrative extends React.Component{
                 <main className="layout">
                     <Paper className="paper">
                         <AssignmentIcon className="registericon" color="secondary"/>
-                        <Typography variant="headline">Registrarse como Administrativo</Typography>
+                        <Typography variant="h5">Registrarse como Administrativo</Typography>
                         <form className="form" onSubmit={this.handleRegister}>
                             <FormControl margin="normal" required fullWidth>
                                 <InputLabel htmlFor="text">Nombre</InputLabel>
@@ -188,8 +188,7 @@ export class RegisterAdministrative extends React.Component{
                                 fullWidth
                                 variant="contained"
                                 color="primary"
-                                className="submit"
-                                href="../Login/Login"                                
+                                className="submit"                              
                             >
                                 Completar Registro
                             </Button>         
@@ -199,11 +198,10 @@ export class RegisterAdministrative extends React.Component{
             </React.Fragment>
         );
     }
-    createAxiosInstance(token) {
+    createAxiosInstance() {
                 axiosInstance = axios.create({
                     baseURL: apiURL,
                     timeout: 1000,
-                    // headers: {'Authorization': 'Bearer '+ token} //TODO When token is implemented
                 });
             }
 }

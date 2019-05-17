@@ -14,6 +14,7 @@ import axios from "axios";
 export class RegisterTeacher extends React.Component{
     constructor(props){
         super(props);
+        this.createAxiosInstance();
         this.state = {
             name : "",
             lastName : "",
@@ -85,14 +86,14 @@ export class RegisterTeacher extends React.Component{
     handleRegister = (event) => {
         event.preventDefault();
         axiosInstance.post("/users/createteacher", {
-        name : this.state.name,
-        lastName : this.state.lastName,
-        faculty : this.state.faculty,
-        teachertype : this.state.teachertype,
-        email : this.state.email,
-        phone : this.state.phone,
-        address : this.state.address,
-        password : this.state.password,
+            name : this.state.name,
+            lastName : this.state.lastName,
+            faculty : this.state.faculty,
+            teachertype : this.state.teachertype,
+            email : this.state.email,
+            phone : this.state.phone,
+            address : this.state.address,
+            password : this.state.password,
 
         }).then((response) => {
             this.setState({
@@ -111,8 +112,8 @@ export class RegisterTeacher extends React.Component{
                 <main className="layout">
                     <Paper className="paper">
                         <AssignmentIcon className="registericon" color="secondary"/>
-                        <Typography variant="headline">Registrarse como Profesor</Typography>
-                        <form className="form" onSubmit={this.handleRegister}>
+                        <Typography variant="h5">Registrarse como Profesor</Typography>
+                        <form onSubmit={this.handleRegister}>
                             <FormControl margin="normal" required fullWidth>
                                 <InputLabel htmlFor="text">Nombre</InputLabel>
                                 <Input
@@ -137,7 +138,7 @@ export class RegisterTeacher extends React.Component{
                                     onChange={this.handleFacultyChange}
                                     inputProps={{
                                         name: "faculty",
-                                        id: "text",
+                                        id: "faculty",
                                     }}
                                     >
                                     <MenuItem value="">
@@ -173,7 +174,7 @@ export class RegisterTeacher extends React.Component{
                                     onChange={this.handleteachertypeChange}
                                     inputProps={{
                                         name: "teachertype",
-                                        id: "text",
+                                        id: "teachertype",
                                         }}
                                 >
                                 <MenuItem value="">
@@ -226,8 +227,7 @@ export class RegisterTeacher extends React.Component{
                                 fullWidth
                                 variant="contained"
                                 color="primary"
-                                className="submit"
-                                href="../Login/Login"                                
+                                className="submit"                               
                             >
                                 Completar Registro
                             </Button>
@@ -237,11 +237,13 @@ export class RegisterTeacher extends React.Component{
             </React.Fragment>
         );
     }
-    createAxiosInstance(token) {
+
+    createAxiosInstance() {
+        var token = localStorage.getItem("token");
         axiosInstance = axios.create({
             baseURL: apiURL,
             timeout: 1000,
-            // headers: {'Authorization': 'Bearer '+ token} //TODO When token is implemented
+            headers: {'Authorization': 'Bearer '+ token}
         });
     }
 }
