@@ -177,11 +177,12 @@ class AddNewForm extends React.Component {
         );
     }
 
-    createAxiosInstance(token) {
+    createAxiosInstance() {
+        var token = localStorage.getItem("token");
         axiosInstance = axios.create({
             baseURL: apiURL,
             timeout: 1000,
-            // headers: {'Authorization': 'Bearer '+ token} //TODO When token is implemented
+            headers: {'Authorization': 'Bearer '+ token}
         });
     }
 }
