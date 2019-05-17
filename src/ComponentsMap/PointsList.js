@@ -3,6 +3,11 @@ import Point from "./InterestPoint";
 
 
 export default class PointList extends Component {
+    pointsList;
+    constructor(props) {
+        super(props);
+        this.pointsList = props.pointsList;
+    }
 
     render() {
         const points = this.props.pointsList.map((point, i) => {
