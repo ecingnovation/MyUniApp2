@@ -10,6 +10,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
 import "./Register.css";
+import axios from "axios";
 
 export class RegisterStudent extends React.Component{
     constructor(props){
@@ -76,6 +77,23 @@ export class RegisterStudent extends React.Component{
     }
 
     handleRegister = (event) => {
+        event.preventDefault();
+        axiosInstance.post("/users/createstudent", {
+        name : this.state.name,
+        lastName : this.state.lastName,
+        faculty : this.state.faculty,
+        semester : this.state.semester,
+        email : this.state.email,
+        phone : this.state.phone,
+        password : this.state.password,
+
+        }).then((response) => {
+            this.setState({
+                fireRedirect : true
+            });
+        }).catch((error) => {
+            console.log(error);
+        });
     }
   
     render(){
@@ -210,4 +228,16 @@ export class RegisterStudent extends React.Component{
             </React.Fragment>
         );
     }
+
+    createAxiosInstance(token) {
+        axiosInstance = axios.create({
+            baseURL: apiURL,
+            timeout: 1000,
+            // headers: {'Authorization': 'Bearer '+ token} //TODO When token is implemented
+        });
+    }
+
 }
+
+const apiURL = ((window.location.hostname === "localhost") ? "http://localhost:8080" : "https://myuniapp-back.herokuapp.com");
+var axiosInstance;

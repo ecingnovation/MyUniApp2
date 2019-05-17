@@ -18,6 +18,7 @@ export class PagesView extends React.Component {
                     <Route path="/app/map" component={MapView} />
                     <Route path="/app/news" component={NewsListView}/>
                     <Route path="/app/postnew" component={AddNewView}/>
+
                 </Switch>
             </div>
         );
@@ -35,3 +36,4 @@ const NewsListView = () => (
 const AddNewView = () => (
     <AddNew/>
 );
+

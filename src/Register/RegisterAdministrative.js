@@ -10,6 +10,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
 import "./Register.css";
+import axios from "axios";
 
 export class RegisterAdministrative extends React.Component{
     constructor(props){
@@ -44,17 +45,12 @@ export class RegisterAdministrative extends React.Component{
         });
     }
     
-    handleFacultyChange = (event) => {
+    handledependencyChange = (event) => {
         this.setState({
-            faculty: event.target.value
+            dependency: event.target.value
         });
     }
-    
-    handleSemesterChange = (event) => {
-        this.setState({
-            semester: event.target.value
-        });
-    }
+
     
     handlePhoneChange = (event) => {
         this.setState({
@@ -75,7 +71,25 @@ export class RegisterAdministrative extends React.Component{
     }
 
     handleRegister = (event) => {
+        event.preventDefault();
+        axiosInstance.post("/users/createadmin", {
+        name : this.state.name,
+        lastName : this.state.lastName,
+        dependency : this.state.dependency,
+        email : this.state.email,
+        phone : this.state.phone,
+        address : this.state.address,
+        password : this.state.password,
+
+        }).then((response) => {
+            this.setState({
+                fireRedirect : true
+            });
+        }).catch((error) => {
+            console.log(error);
+        });
     }
+
   
     render(){
         return (
@@ -113,12 +127,12 @@ export class RegisterAdministrative extends React.Component{
                                 />
                             </FormControl>
                              <FormControl  margin="normal" required fullWidth>
-                                <InputLabel htmlFor="text">Facultad</InputLabel>
+                                <InputLabel htmlFor="text">Dependencia</InputLabel>
                                 <Select
-                                    value={this.state.faculty}
-                                    onChange={this.handleFacultyChange}
+                                    value={this.state.dependency}
+                                    onChange={this.handledependencyChange}
                                     inputProps={{
-                                        name: "faculty",
+                                        name: "dependency",
                                         id: "text",
                                     }}
                                     >
@@ -139,31 +153,7 @@ export class RegisterAdministrative extends React.Component{
                                     <MenuItem value={120}>Matemáticas</MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl margin="normal" required fullWidth>
-                                <InputLabel htmlFor="text">Semester</InputLabel>
-                                <Select
-                                    value={this.state.semester}
-                                    onChange={this.handleSemesterChange}
-                                    inputProps={{
-                                        name: "semester",
-                                        id: "text",
-                                    }}
-                                    >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
-                                    <MenuItem value={10}>1°</MenuItem>
-                                    <MenuItem value={20}>2°</MenuItem>
-                                    <MenuItem value={30}>3°</MenuItem>
-                                    <MenuItem value={40}>4°</MenuItem>
-                                    <MenuItem value={50}>5°</MenuItem>
-                                    <MenuItem value={60}>6°</MenuItem>
-                                    <MenuItem value={70}>7°</MenuItem>
-                                    <MenuItem value={80}>8°</MenuItem>
-                                    <MenuItem value={90}>9°</MenuItem>
-                                    <MenuItem value={100}>10°</MenuItem>
-                                </Select>
-                            </FormControl>
+
                             <FormControl margin="normal" required fullWidth>
                                 <InputLabel htmlFor="number">Telefono</InputLabel>
                                 <Input
@@ -209,4 +199,14 @@ export class RegisterAdministrative extends React.Component{
             </React.Fragment>
         );
     }
+    createAxiosInstance(token) {
+                axiosInstance = axios.create({
+                    baseURL: apiURL,
+                    timeout: 1000,
+                    // headers: {'Authorization': 'Bearer '+ token} //TODO When token is implemented
+                });
+            }
 }
+
+const apiURL = ((window.location.hostname === "localhost") ? "http://localhost:8080" : "https://myuniapp-back.herokuapp.com");
+var axiosInstance;

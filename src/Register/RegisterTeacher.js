@@ -9,6 +9,7 @@ import AssignmentIcon from "@material-ui/icons/Assignment";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
+import axios from "axios";
 
 export class RegisterTeacher extends React.Component{
     constructor(props){
@@ -82,9 +83,28 @@ export class RegisterTeacher extends React.Component{
     }
 
     handleRegister = (event) => {
+        event.preventDefault();
+        axiosInstance.post("/users/createteacher", {
+        name : this.state.name,
+        lastName : this.state.lastName,
+        faculty : this.state.faculty,
+        teachertype : this.state.teachertype,
+        email : this.state.email,
+        phone : this.state.phone,
+        address : this.state.address,
+        password : this.state.password,
+
+        }).then((response) => {
+            this.setState({
+                fireRedirect : true
+            });
+        }).catch((error) => {
+            console.log(error);
+        });
     }
 
     render() {
+    
         return (
             <React.Fragment>
                 <CssBaseline />
@@ -217,4 +237,14 @@ export class RegisterTeacher extends React.Component{
             </React.Fragment>
         );
     }
+    createAxiosInstance(token) {
+        axiosInstance = axios.create({
+            baseURL: apiURL,
+            timeout: 1000,
+            // headers: {'Authorization': 'Bearer '+ token} //TODO When token is implemented
+        });
+    }
 }
+
+const apiURL = ((window.location.hostname === "localhost") ? "http://localhost:8080" : "https://myuniapp-back.herokuapp.com");
+var axiosInstance;

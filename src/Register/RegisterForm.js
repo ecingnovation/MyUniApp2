@@ -8,6 +8,7 @@ import { RegisterStudent } from "../Register/RegisterStudent";
 import { RegisterAdministrative } from "../Register/RegisterAdministrative";
 import { CssBaseline, Paper } from "@material-ui/core";
 import "./Register.css";
+import axios from "axios";
 
 export class RegisterForm extends React.Component {
     constructor(props){
@@ -61,6 +62,7 @@ export class RegisterForm extends React.Component {
                     <form>
                         {options}
                         <RegisterTeacher/>
+
                     </form>              
                 </section>
                 
