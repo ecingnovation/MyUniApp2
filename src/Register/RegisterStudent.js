@@ -80,7 +80,7 @@ export class RegisterStudent extends React.Component{
 
     handleRegister = (event) => {
         event.preventDefault();
-        axiosInstance.post("/users/createstudent", {
+        axiosInstance.post("/users/public/createstudent", {
             name : this.state.name,
             lastName : this.state.lastName,
             faculty : this.state.faculty,

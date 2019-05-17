@@ -74,7 +74,7 @@ export class RegisterAdministrative extends React.Component{
 
     handleRegister = (event) => {
         event.preventDefault();
-        axiosInstance.post("/users/createadministrative", {
+        axiosInstance.post("/users/public/createadministrative", {
             name : this.state.name,
             lastName : this.state.lastName,
             dependency : this.state.dependency,
