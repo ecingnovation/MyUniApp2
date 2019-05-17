@@ -7,28 +7,23 @@ import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import Button from "@material-ui/core/Button";
 import PresentToAll from "@material-ui/icons/PresentToAll";
-import { MuiPickersUtilsProvider, DatePicker } from "material-ui-pickers";
-import DateFnsUtils from "@date-io/date-fns";
-import esLocale from "date-fns/locale/es";
 import { Select, MenuItem, TextField } from "@material-ui/core";
-import NewsItem from "./NewsItem";
+import KioscosItem from "./KioscosItem";
 import axios from "axios";
-import moment from "moment";
 import { Redirect } from "react-router-dom";
-import "./AddNewForm.css";
+import "./AddNewFood.css";
 
-class AddNewForm extends React.Component {
+class AddNewFood extends React.Component {
 
-    constructor(props) {
+    constructor(props){
         super(props);
         this.createAxiosInstance();
         this.state = {
-            title : "",
-            publisher : "",
-            date : new Date(),
-            content : "",
-            email : "",
-            type : "",
+            titulo : "",
+            tipo : "",
+            precio : 0,
+            descripcion : "",
+            kiosko : "",
             imageURL : "undefined",
             fireRedirect : false
         };
@@ -43,22 +38,15 @@ class AddNewForm extends React.Component {
         });
     }
 
-    handleDateChange = (dateValue) => {
-        this.setState({
-            date: dateValue
-        });
-    }
-
     handleSubmit = (event) => {
         event.preventDefault();
         
-        axiosInstance.post("/news/post", {
-            title : this.state.title,
-            publisher : this.state.publisher,
-            date : moment(this.state.date).format("x"),
-            content : this.state.content,
-            email : this.state.email,
-            type : this.state.type,
+        axiosInstance.post("/menuItems", {
+            titulo : this.state.titulo,
+            tipo : this.state.tipo,
+            precio : this.state.precio,
+            descripcion : this.state.descripcion,
+            kiosko : this.state.kiosko,
             imageURL : this.state.imageURL
         }).then((response) => {
             this.setState({
@@ -71,73 +59,74 @@ class AddNewForm extends React.Component {
 
     render() {
         if (this.state.fireRedirect === true) {
-            return (<Redirect to="/app/news"/>);
+            return (<Redirect to="/app/kioskos"/>);
         }
 
-        return (
+        return(
             <React.Fragment>
                 <CssBaseline />
                 <main className="layout">
                     <Paper className="paper">
                         <PresentToAll color="secondary" className="svg_icons"/>
-                        <Typography variant="h4">Publicar una noticia</Typography>
+                        <Typography variant="h4">Publicar un Producto</Typography>
                         <form className="form" onSubmit={this.handleSubmit} name="login-form">
                             <FormControl margin="normal" required fullWidth>
-                                <InputLabel htmlFor="title">Título</InputLabel>
-                                <Input id="title" name="title" autoFocus 
+                                <InputLabel htmlFor="titulo">Título</InputLabel>
+                                <Input id="titulo" name="titulo" autoFocus 
                                     onChange={this.handleChange}
                                 />
                             </FormControl>
                             <FormControl margin="normal" required fullWidth>
-                                <InputLabel htmlFor="publisher">Nombre del Editor</InputLabel>
-                                <Input id="publisher" name="publisher" 
-                                    onChange={this.handleChange}
-                                />
-                            </FormControl>
-                            <FormControl margin="normal" required fullWidth>
-                                <MuiPickersUtilsProvider utils={DateFnsUtils} locale={esLocale} >
-                                    <DatePicker
-                                        margin="normal"
-                                        label="Seleccionar Fecha"
-                                        id="date"
-                                        name="date"
-                                        value={this.state.date}
-                                        onChange={this.handleDateChange}>
-                                    </DatePicker>
-                                </MuiPickersUtilsProvider>
-                            </FormControl>
-                            <FormControl margin="normal" required fullWidth>
-                                <InputLabel htmlFor="type">Tipo</InputLabel>
+                                <InputLabel htmlFor="tipo">Tipo</InputLabel>
                                 <Select 
-                                    inputProps={{name:"type", id:"type"}}
-                                    value={this.state.type}
+                                    inputProps={{name:"tipo", id:"tipo"}}
+                                    value={this.state.tipo}
                                     onChange={this.handleChange}
                                 >
                                     <MenuItem value="Normal">
                                         <em>Elegir tipo</em>
                                     </MenuItem>
-                                    <MenuItem value="Normal">Normal</MenuItem>
-                                    <MenuItem value="Warning">Advertencia</MenuItem>
-                                    <MenuItem value="Info">Info</MenuItem>
+                                    <MenuItem value="A">Almuerzo</MenuItem>
+                                    <MenuItem value="D">Desayuno</MenuItem>
+                                    <MenuItem value="I">Individual</MenuItem>
+                                    <MenuItem value="B">Bebida</MenuItem>
+                                    <MenuItem value="C">Combo</MenuItem>
                                 </Select>
                             </FormControl>
                             <FormControl margin="normal" required fullWidth>
-                                <InputLabel htmlFor="email">Email de Contacto</InputLabel>
-                                <Input id="email" name="email"
+                                <InputLabel htmlFor="precio">Precio</InputLabel>
+                                <Input id="precio" name="precio" 
                                     onChange={this.handleChange}
                                 />
                             </FormControl>
                             <FormControl margin="normal" required fullWidth>
                                 <TextField
-                                    id="content"
-                                    name="content"
-                                    label="Contenido de la Noticia"
+                                    id="descripcion"
+                                    name="descripcion"
+                                    label="Contenido del producto"
                                     multiline
                                     rows="5"
                                     defaultValue="Contenido Principal"
                                     margin="normal" 
                                     onChange={this.handleChange}>
                                 </TextField>
+                            </FormControl>
+                            <FormControl margin="normal" required fullWidth>
+                                <InputLabel htmlFor="kiosko">Kiosko</InputLabel>
+                                <Select 
+                                    inputProps={{name:"kiosko", id:"kiosko"}}
+                                    value={this.state.kiosko}
+                                    onChange={this.handleChange}
+                                >
+                                    <MenuItem value="Normal">
+                                        <em>Elegir Kiosko de Venta</em>
+                                    </MenuItem>
+                                    <MenuItem value="RS">Restaurante</MenuItem>
+                                    <MenuItem value="K1">K1</MenuItem>
+                                    <MenuItem value="K2">K2</MenuItem>
+                                    <MenuItem value="K3">K3</MenuItem>
+                                    <MenuItem value="HV">Harveys</MenuItem>
+                                </Select>
                             </FormControl>
                             <FormControl margin="normal" fullWidth>
                                 <InputLabel htmlFor="imageurl">Link de Imagen</InputLabel>
@@ -154,7 +143,7 @@ class AddNewForm extends React.Component {
                                     variant="contained"
                                     color="primary"
                                 >
-                                    Publicar Noticia
+                                    Publicar
                                 </Button>
                             </FormControl>
                         </form>
@@ -163,13 +152,12 @@ class AddNewForm extends React.Component {
                 <br></br>
                 <h2>Vista Previa</h2>
                 <br></br>
-                <NewsItem cardInfo={{
-                    title : this.state.title,
-                    publisher : this.state.publisher,
-                    date : this.state.date,
-                    content : this.state.content,
-                    email : this.state.email,
-                    type : this.state.type,
+                <KioscosItem cardInfo={{
+                    titulo : this.state.titulo,
+                    tipo : this.state.tipo,
+                    precio : this.state.precio,
+                    descripcion : this.state.descripcion,
+                    kiosko : this.state.kiosko,
                     imageURL : this.state.imageURL
                 }
                 }/>
@@ -177,17 +165,16 @@ class AddNewForm extends React.Component {
         );
     }
 
-    createAxiosInstance() {
-        var token = localStorage.getItem("token");
+    createAxiosInstance(token) {
         axiosInstance = axios.create({
             baseURL: apiURL,
             timeout: 1000,
-            headers: {'Authorization': 'Bearer '+ token}
         });
     }
+
 }
 
-export default AddNewForm;
+export default AddNewFood;
 
 const apiURL = ((window.location.hostname === "localhost") ? "http://localhost:8080" : "https://myuniapp-back.herokuapp.com");
 var axiosInstance;

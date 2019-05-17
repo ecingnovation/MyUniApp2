@@ -3,6 +3,7 @@ import MapComponent from "./Map";
 import PointList from "./PointsList";
 import axios from "axios";
 
+
 class MapView extends Component {
     constructor(props){
         super(props);
@@ -12,9 +13,14 @@ class MapView extends Component {
             lng: 0
         },
         isMarkerShown: false,
-        markerList:""
+         loaded : false,
+        markerList: []
         };
+
+
+
         this.createAxiosInstance();
+
     }
 
     componentWillUpdate() {
@@ -22,17 +28,12 @@ class MapView extends Component {
     }
 
     componentDidMount() {
+
         this.delayedShowMarker();
-        let markerList= [];
-        axios.get(apiURL + "/map/points").then((response) => {
-                console.log(response.data);
-                markerList = response.data;
-                this.setState({markerList: markerList});
-                localStorage.setItem("Markers", markerList);
-            }).catch((error) => {
-                console.log(error);
-            }
-        );
+
+    }
+    componentWillUnmount() {
+        this.loaded = false;
     }
 
     delayedShowMarker = () => {
@@ -72,17 +73,47 @@ class MapView extends Component {
         else {
             console.log("ERROR GETTING LOCATION");
         }
+
     }
 
+
     render() {
-        return (
+
+        if (this.state.loaded === false) {
+            this.getPointsFromApi();
+            return(
+                <h1>Loading!</h1>
+            );
+        }else{
+            //console.log(this.state.markerList);
+            return (
+
             <MapComponent
-                isMarkerShown={this.state.isMarkerShown}
-                onMarkerClick={this.handleMarkerClick}
-                currentLocation={this.state.currentLatLng}
-                markers= <PointList pointsList={this.state.markerList} />
-            />
+                    isMarkerShown={this.state.isMarkerShown}
+                    onMarkerClick={this.handleMarkerClick}
+                    currentLocation={this.state.currentLatLng}
+                    markers = {<PointList pointsList ={this.state.markerList} />}
+                />
+            );}
+    }
+
+    getPointsFromApi() {
+        let markerList= [];
+        axiosInstance.get("/map/points").then((response) => {
+           // console.log(response.data);
+            //console.log("HERE");
+            markerList = response.data;
+            //console.log(markerList)
+            this.setState({markerList: markerList});
+           // console.log(this.state.markerList)
+            localStorage.setItem("Markers", markerList);
+        }).catch((error) => {
+                console.log(error);
+            }
         );
+        this.setState({
+            loaded : true
+        });
     }
 }
 

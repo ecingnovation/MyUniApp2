@@ -104,7 +104,7 @@ export class RegisterTeacher extends React.Component{
     }
 
     render() {
-    
+
         return (
             <React.Fragment>
                 <CssBaseline />
