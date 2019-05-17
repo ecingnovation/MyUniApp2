@@ -166,11 +166,14 @@ export class RegisterTeacher extends React.Component{
                                     onChange = {this.handleEmailChange}
                                 />
                             </FormControl>
+
+
+
                             <FormControl  margin="normal" required fullWidth>
                                 <InputLabel htmlFor="text">Tipo de Profesor</InputLabel>
                                 <Select
                                     value={this.state.teachertype}
-                                    onChange={this.handleteachertypeChange}
+                                    onChange={this.handleTeacherTypeChange}
                                     inputProps={{
                                         name: "teachertype",
                                         id: "text",
@@ -179,7 +182,7 @@ export class RegisterTeacher extends React.Component{
                                 <MenuItem value="">
                                     <em>None</em>
                                 </MenuItem>
-                                    <MenuItem value={10}>Cátedra</MenuItem>
+                                    <MenuItem value={10}>Catedra</MenuItem>
                                     <MenuItem value={20}>Planta</MenuItem>
                                 </Select>
                             </FormControl>
