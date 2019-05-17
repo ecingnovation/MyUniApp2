@@ -9,6 +9,7 @@ import AssignmentIcon from "@material-ui/icons/Assignment";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
+import { Redirect } from "react-router-dom";
 import "./Register.css";
 import axios from "axios";
 
@@ -92,6 +93,9 @@ export class RegisterAdministrative extends React.Component{
 
   
     render(){
+        if (this.state.fireRedirect === true) {
+            return (<Redirect to="/"/>);
+        }
         return (
             <React.Fragment>
                 <CssBaseline />
@@ -199,11 +203,11 @@ export class RegisterAdministrative extends React.Component{
         );
     }
     createAxiosInstance() {
-                axiosInstance = axios.create({
-                    baseURL: apiURL,
-                    timeout: 1000,
-                });
-            }
+        axiosInstance = axios.create({
+            baseURL: apiURL,
+            timeout: 1000,
+        });
+    }
 }
 
 const apiURL = ((window.location.hostname === "localhost") ? "http://localhost:8080" : "https://myuniapp-back.herokuapp.com");

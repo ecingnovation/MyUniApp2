@@ -9,6 +9,7 @@ import AssignmentIcon from "@material-ui/icons/Assignment";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
+import { Redirect } from "react-router-dom";
 import "./Register.css";
 import axios from "axios";
 
@@ -98,6 +99,9 @@ export class RegisterStudent extends React.Component{
     }
   
     render(){
+        if (this.state.fireRedirect === true) {
+            return (<Redirect to="/"/>);
+        }
         return (
             <React.Fragment>
                 <CssBaseline />

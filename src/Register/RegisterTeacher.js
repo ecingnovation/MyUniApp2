@@ -9,6 +9,7 @@ import AssignmentIcon from "@material-ui/icons/Assignment";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
+import { Redirect } from "react-router-dom";
 import axios from "axios";
 
 export class RegisterTeacher extends React.Component{
@@ -105,7 +106,9 @@ export class RegisterTeacher extends React.Component{
     }
 
     render() {
-
+        if (this.state.fireRedirect === true) {
+            return (<Redirect to="/"/>);
+        }
         return (
             <React.Fragment>
                 <CssBaseline />
@@ -242,11 +245,9 @@ export class RegisterTeacher extends React.Component{
     }
 
     createAxiosInstance() {
-        var token = localStorage.getItem("token");
         axiosInstance = axios.create({
             baseURL: apiURL,
-            timeout: 1000,
-            headers: {'Authorization': 'Bearer '+ token}
+            timeout: 1000
         });
     }
 }
