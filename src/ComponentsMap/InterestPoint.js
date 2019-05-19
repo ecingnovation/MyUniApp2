@@ -29,6 +29,7 @@ class InterestPoint extends React.Component {
 
     render(){
         return (
+            
             <Marker position={{ lat: this.props.lat, lng: this.props.lng }} onClick={this.handleToggle} label={this.props.label} >
                 {this.state.isOpen &&
                     <InfoWindow
