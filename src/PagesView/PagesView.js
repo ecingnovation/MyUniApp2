@@ -6,6 +6,7 @@ import NewsList from "../News/NewsList";
 import AddNew from "../News/AddNewForm";
 import KioscosList from "../Kioscos/KioscosList";
 import AddNewFood from "../Kioscos/AddNewFood";
+import DiligenceList from "../Diligencias/DiligenceList";
 import { Redirect } from "react-router-dom";
 
 export class PagesView extends React.Component {
@@ -22,6 +23,8 @@ export class PagesView extends React.Component {
                     <Route path="/app/postnew" component={AddNewView}/>
                     <Route path="/app/kioskos" component={KioscosListView}/>
                     <Route path="/app/postKiosko" component={AddNewFoodView}/>
+                    <Route path="/app/diligence" component={DiligenceListView}/>
+
                 </Switch>
             </div>
         );
@@ -48,3 +51,6 @@ const AddNewFoodView = () => (
     <AddNewFood/>
 );
 
+const DiligenceListView = () => (
+    <DiligenceList/>
+);
