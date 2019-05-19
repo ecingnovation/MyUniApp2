@@ -107,13 +107,14 @@ class MapView extends Component {
             this.setState({markerList: markerList});
            // console.log(this.state.markerList)
             localStorage.setItem("Markers", markerList);
+            this.setState({
+                loaded : true
+            });
         }).catch((error) => {
                 console.log(error);
             }
         );
-        this.setState({
-            loaded : true
-        });
+
     }
 }
 

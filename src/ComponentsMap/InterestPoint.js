@@ -29,7 +29,7 @@ class InterestPoint extends React.Component {
 
     render(){
         return (
-            
+
             <Marker position={{ lat: this.props.lat, lng: this.props.lng }} onClick={this.handleToggle} label={this.props.label} >
                 {this.state.isOpen &&
                     <InfoWindow
@@ -37,7 +37,7 @@ class InterestPoint extends React.Component {
                     >
                         <div>
 
-                        <img src={`${this.props.image}`} width={500} height={300} mode='fit'/>
+                        <img src={`${this.props.image}`} width={500} height={300} mode='fit' alt="The Interest Point"/>
                          <h4>{this.props.title}</h4>
                         <span>{this.props.description}</span>
                         </div>
