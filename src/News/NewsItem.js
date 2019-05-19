@@ -22,11 +22,6 @@ class NewsItem extends React.Component {
         } else {
             statusIcon = (<EventAvailableSharp className="status" color="primary" />);
         }
-        var padding = "15%";
-        if (this.props.cardInfo.imageURL === "undefined") {
-            padding = "0%";
-        }
-        const mediaClass = {"height": 0, "paddingTop": padding};
         return (
             <div>
                 <Card className="card">
@@ -39,15 +34,11 @@ class NewsItem extends React.Component {
                         }
                         subheader={
                             <Typography color="textSecondary">
-                                {moment(this.props.cardInfo.date).format("DD-MM-YYYY HH:MM")}
+                                {moment(this.props.cardInfo.date).format("DD-MM-YYYY")}
                             </Typography>
                         }
                     />
-                    <CardMedia 
-                        style={mediaClass}
-                        image={this.props.cardInfo.imageURL}
-                        title="Imagen Noticia"
-                    />
+                    {this.getCardMedia()}
                     <CardContent>
                         <Typography className="pos" color="textPrimary">
                             Por <b>{this.props.cardInfo.publisher}</b>
@@ -55,8 +46,15 @@ class NewsItem extends React.Component {
                         <Typography className="pos" color="textSecondary" >
                             <small>{this.props.cardInfo.email}</small>
                         </Typography>
-                        <Typography>
-                            {this.props.cardInfo.content}
+                        <Typography >
+                            {this.props.cardInfo.content.split("\n").map(function(item) {
+                                return (
+                                    <span>
+                                    {item}
+                                    <br/>
+                                    </span>
+                                )
+                            })}
                         </Typography>
                     </CardContent>
                     <CardActions>
@@ -66,6 +64,25 @@ class NewsItem extends React.Component {
                 <br></br>
             </div>
         );
+    }
+
+    getCardMedia() {
+        var expression = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/gi;
+        var regex = new RegExp(expression);
+        const mediaClass = {"height": 0, "paddingTop": "15%"};
+        console.log(this.props.cardInfo.content);
+        if (this.props.cardInfo.imageURL.match(regex)) {
+            return (
+                <CardMedia 
+                    style={mediaClass}
+                    image={this.props.cardInfo.imageURL}
+                    title="Imagen Noticia"
+                />
+            );
+        }
+        else {
+            return (<div></div>);
+        }
     }
 }
 

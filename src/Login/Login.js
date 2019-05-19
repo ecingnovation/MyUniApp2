@@ -76,7 +76,6 @@ export class Login extends React.Component {
             id: useremail,
             password
         }).then((response) => {
-            console.log(response.data);
             localStorage.setItem("token", response.data.accessToken);
             this.createAxiosInstance(response.data.accessToken);
             this.getBasicUserInfoAndRedirect(useremail);
@@ -95,7 +94,6 @@ export class Login extends React.Component {
 
     getBasicUserInfoAndRedirect(mail) {
         axiosInstance.get("/users/private/" + mail).then((response) => {
-            console.log(response.data);
             localStorage.setItem("userName", response.data.name + " " + response.data.lastName);
             localStorage.setItem("userMail", response.data.email);
             this.setState({
