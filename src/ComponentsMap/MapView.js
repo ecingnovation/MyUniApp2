@@ -85,7 +85,7 @@ class MapView extends Component {
                 <h1>Loading!</h1>
             );
         }else{
-            console.log(this.state.markerList);
+            //console.log(this.state.markerList);
             return (
 
             <MapComponent
