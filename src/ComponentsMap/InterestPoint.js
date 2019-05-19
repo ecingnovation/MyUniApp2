@@ -34,7 +34,13 @@ class InterestPoint extends React.Component {
                     <InfoWindow
                         onCloseClick={this.handleToggleClose}
                     >
-                        <span>Description: {this.props.description} </span>
+                        <div>
+
+                        <img src={`${this.props.image}`} width={500} height={300} mode='fit'/>
+                         <h4>{this.props.title}</h4>
+                        <span>{this.props.description}</span>
+                        </div>
+
                     </InfoWindow>
                 }
             </Marker>
