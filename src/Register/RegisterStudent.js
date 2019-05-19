@@ -9,12 +9,14 @@ import AssignmentIcon from "@material-ui/icons/Assignment";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
+import { Redirect } from "react-router-dom";
 import "./Register.css";
 import axios from "axios";
 
 export class RegisterStudent extends React.Component{
     constructor(props){
         super(props);
+        this.createAxiosInstance();
         this.state = {
             name : "",
             lastName : "",
@@ -78,14 +80,14 @@ export class RegisterStudent extends React.Component{
 
     handleRegister = (event) => {
         event.preventDefault();
-        axiosInstance.post("/users/createstudent", {
-        name : this.state.name,
-        lastName : this.state.lastName,
-        faculty : this.state.faculty,
-        semester : this.state.semester,
-        email : this.state.email,
-        phone : this.state.phone,
-        password : this.state.password,
+        axiosInstance.post("/users/public/createstudent", {
+            name : this.state.name,
+            lastName : this.state.lastName,
+            faculty : this.state.faculty,
+            semester : this.state.semester,
+            email : this.state.email,
+            phone : this.state.phone,
+            password : this.state.password
 
         }).then((response) => {
             this.setState({
@@ -97,13 +99,16 @@ export class RegisterStudent extends React.Component{
     }
   
     render(){
+        if (this.state.fireRedirect === true) {
+            return (<Redirect to="/"/>);
+        }
         return (
             <React.Fragment>
                 <CssBaseline />
                 <main className="layout">
                     <Paper className="paper">
                         <AssignmentIcon className="registericon" color="secondary"/>
-                        <Typography variant="headline">Registrarse como Estudiante</Typography>
+                        <Typography variant="h5">Registrarse como Estudiante</Typography>
                         <form className="form" onSubmit={this.handleRegister}>
                             <FormControl margin="normal" required fullWidth>
                                 <InputLabel htmlFor="text">Nombre</InputLabel>
@@ -138,7 +143,7 @@ export class RegisterStudent extends React.Component{
                                     onChange={this.handleFacultyChange}
                                     inputProps={{
                                         name: "faculty",
-                                        id: "text",
+                                        id: "faculty",
                                     }}
                                     >
                                     <MenuItem value="">
@@ -165,7 +170,7 @@ export class RegisterStudent extends React.Component{
                                     onChange={this.handleSemesterChange}
                                     inputProps={{
                                         name: "semester",
-                                        id: "text",
+                                        id: "semester",
                                     }}
                                     >
                                     <MenuItem value="">
@@ -217,8 +222,7 @@ export class RegisterStudent extends React.Component{
                                 fullWidth
                                 variant="contained"
                                 color="primary"
-                                className="submit"
-                                href="../Login/Login"                                
+                                className="submit"                              
                             >
                                 Completar Registro
                             </Button>         
@@ -229,11 +233,10 @@ export class RegisterStudent extends React.Component{
         );
     }
 
-    createAxiosInstance(token) {
+    createAxiosInstance() {
         axiosInstance = axios.create({
             baseURL: apiURL,
             timeout: 1000,
-            // headers: {'Authorization': 'Bearer '+ token} //TODO When token is implemented
         });
     }
 

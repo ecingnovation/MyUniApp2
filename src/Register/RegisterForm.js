@@ -8,7 +8,6 @@ import { RegisterStudent } from "../Register/RegisterStudent";
 import { RegisterAdministrative } from "../Register/RegisterAdministrative";
 import { CssBaseline, Paper } from "@material-ui/core";
 import "./Register.css";
-import axios from "axios";
 
 export class RegisterForm extends React.Component {
     constructor(props){
@@ -22,9 +21,7 @@ export class RegisterForm extends React.Component {
     handleRegistryChange(event){
         this.setState({
             registry: event.target.value
-            
         });
-        console.log(this.state.registry);
     }
     
     render() {
@@ -59,11 +56,8 @@ export class RegisterForm extends React.Component {
         if (this.state.registry === 10){
             return(  
                 <section>
-                    <form>
                         {options}
-                        <RegisterTeacher/>
-
-                    </form>              
+                        <RegisterTeacher/>             
                 </section>
                 
             );
@@ -72,10 +66,8 @@ export class RegisterForm extends React.Component {
         if (this.state.registry === 20){
             return(  
                 <section>
-                    <form>
                         {options}
-                        <RegisterStudent/>
-                    </form>              
+                        <RegisterStudent/>             
                 </section>
             );
 
@@ -83,16 +75,14 @@ export class RegisterForm extends React.Component {
         if (this.state.registry === 30){
             return( 
                 <section>
-                    <form>
                         {options}
-                        <RegisterAdministrative/>
-                    </form>              
+                        <RegisterAdministrative/>           
                 </section> );
 
         }   
         return (
             <div>
-               {options}
+                {options}
             </div>
         );
     }
