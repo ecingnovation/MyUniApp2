@@ -41,7 +41,7 @@ class AddNewFood extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault();
         
-        axiosInstance.post("/menuItems", {
+        axiosInstance.post("/kioskos/menuItems/post?titulo="+this.state.titulo+"&tipo="+this.state.tipo+"&precio="+this.state.precio+"&descripcion="+this.state.descripcion+"&kiosko="+this.state.kiosko+"&imageURL="+this.state.imageURL, {
             titulo : this.state.titulo,
             tipo : this.state.tipo,
             precio : this.state.precio,
