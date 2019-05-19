@@ -53,7 +53,7 @@ class NewsItem extends React.Component {
                                     {item}
                                     <br/>
                                     </span>
-                                )
+                                );
                             })}
                         </Typography>
                     </CardContent>
