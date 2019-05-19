@@ -29,7 +29,7 @@ class KioscosList extends React.Component {
     }
 
     createAxiosInstance(){
-        var token = localStorage.getItem("token")
+        var token = localStorage.getItem("token");
         axiosInstance = axios.create({
             baseURL: apiURL,
             timeout: 1000,
@@ -43,7 +43,7 @@ class KioscosList extends React.Component {
             var kioskoList2 = response.data.map((kioskosItem, i) => {
                 return(
                     <KioscosItem key={i} cardInfo={kioskosItem} />
-                )
+                );
             });
             kioskosListApi = kioskoList2;
             this.setState({
