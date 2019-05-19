@@ -38,7 +38,7 @@ class DiligenceList extends React.Component {
     }
 
     getDiligenceFromApi() {
-        axiosInstance.get("/diligences/all")
+        axiosInstance.get("/diligence/all")
         .then((response) => {
             var diligencesList2 = response.data.map((diligence, i) => {
                 return (

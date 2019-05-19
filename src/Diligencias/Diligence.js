@@ -11,8 +11,17 @@ import moment from "moment";
 import EventAvailableSharp from "@material-ui/icons/EventAvailableSharp";
 import InfoRounded from "@material-ui/icons/InfoRounded";
 import WarningRounded from "@material-ui/icons/WarningRounded";
+import classnames from 'classnames';
+import Collapse from '@material-ui/core/Collapse';
+import IconButton from '@material-ui/core/IconButton';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import PropTypes from 'prop-types';
 
 class Diligence extends React.Component {
+    state = { expanded: false };
+    handleExpandClick = () => {
+        this.setState(state => ({ expanded: !state.expanded }));
+      };
     render() {
         var statusIcon;
         if (this.props.cardInfo.type === "Warning") {
@@ -27,6 +36,8 @@ class Diligence extends React.Component {
             padding = "0%";
         }
         const mediaClass = {"height": 0, "paddingTop": padding};
+        const { classes } = this.props;
+
         return (
             <div>
                 <Card className="card">
@@ -60,8 +71,11 @@ class Diligence extends React.Component {
                         </Typography>
                     </CardContent>
                     <CardActions>
-                    <Button size="small">Ver más</Button>
+
+                      <Button size="small">Ver más</Button>
                     </CardActions>
+
+
                 </Card>
                 <br></br>
             </div>
@@ -69,4 +83,7 @@ class Diligence extends React.Component {
     }
 }
 
+Diligence.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
 export default Diligence;

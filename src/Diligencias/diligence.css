@@ -22,3 +22,16 @@
     transform: scale(1.5);
     margin: 20px;
 }
+.actions: {
+    display: 'flex';
+}
+.expand: {
+    transform: 'rotate(0deg)';
+    marginLeft: 'auto';
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    });
+}
+expandOpen: {
+    transform: 'rotate(180deg)';
+  }
