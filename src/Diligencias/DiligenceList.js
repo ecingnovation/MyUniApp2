@@ -1,8 +1,8 @@
 import React from "react";
-import NewsItem from "./NewsItem";
+import Diligence from "./Diligence";
 import axios from "axios";
 
-class NewsList extends React.Component {
+class DiligenceList extends React.Component {
 
     constructor(props) {
         super(props);
@@ -14,7 +14,7 @@ class NewsList extends React.Component {
 
     render() {
         if (this.state.loaded === false) {
-            this.getNewsFromApi();
+            this.getDiligenceFromApi();
             return(
                 <h1>Loading!</h1>
             );
@@ -22,7 +22,7 @@ class NewsList extends React.Component {
             return(
                 <div>
                     <br></br>
-                    {newsListApi}
+                    {DiligenceListApi}
                 </div>
             );
         }
@@ -37,19 +37,19 @@ class NewsList extends React.Component {
         });
     }
 
-    getNewsFromApi() {
-        axiosInstance.get("/news/all")
+    getDiligenceFromApi() {
+        axiosInstance.get("/diligence/all")
         .then((response) => {
-            var newsList2 = response.data.map((newsItem, i) => {
+            var diligencesList2 = response.data.map((diligence, i) => {
                 return (
-                    <NewsItem key={i} cardInfo={newsItem} />
+                    <Diligence key={i} cardInfo={diligence} />
                 );
             });
-            newsListApi = newsList2;
+            DiligenceListApi = diligencesList2;
             this.setState({
                 loaded : true
             });
-            return newsList2;
+            return diligencesList2;
         }).catch((error) => {
             console.log(error);
         });
@@ -57,8 +57,8 @@ class NewsList extends React.Component {
 
 }
 
-export default NewsList;
+export default DiligenceList;
 
 const apiURL = ((window.location.hostname === "localhost") ? "http://localhost:8080" : "https://myuniapp-back.herokuapp.com");
 var axiosInstance;
-var newsListApi = (<div></div>);
+var DiligenceListApi = (<div></div>);

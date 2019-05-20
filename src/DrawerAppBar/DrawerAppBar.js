@@ -82,11 +82,11 @@ class DrawerAppBar extends React.Component {
                         </ListItemIcon>
                         <ListItemText primary="Publicar Producto" />
                     </ListItem>
-                    <ListItem button key="site">
+                    <ListItem button key="diligence" component={Link} to="/app/diligence">
                         <ListItemIcon>
                             <MailIcon/>
                         </ListItemIcon>
-                        <ListItemText primary="Sitio" />
+                        <ListItemText primary="Procesos" />
                     </ListItem>
                 </List>
             </div>
