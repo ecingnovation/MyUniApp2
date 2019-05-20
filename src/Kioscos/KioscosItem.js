@@ -23,7 +23,7 @@ class KioscosItem extends React.Component{
                             </Typography>
                         }
                         subheader={
-                            <Typography variant="text Secondary">
+                            <Typography variant="body1">
                                Tipo: {this.props.cardInfo.tipo}
                             </Typography>
                         }

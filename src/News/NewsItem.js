@@ -47,9 +47,9 @@ class NewsItem extends React.Component {
                             <small>{this.props.cardInfo.email}</small>
                         </Typography>
                         <Typography >
-                            {this.props.cardInfo.content.split("\n").map(function(item) {
+                            {this.props.cardInfo.content.split("\n").map(function(item, i) {
                                 return (
-                                    <span>
+                                    <span key={i}>
                                     {item}
                                     <br/>
                                     </span>
@@ -70,7 +70,6 @@ class NewsItem extends React.Component {
         var expression = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/gi;
         var regex = new RegExp(expression);
         const mediaClass = {"height": 0, "paddingTop": "15%"};
-        console.log(this.props.cardInfo.content);
         if (this.props.cardInfo.imageURL.match(regex)) {
             return (
                 <CardMedia 

@@ -8,7 +8,6 @@ import { CardHeader } from "@material-ui/core";
 import EventAvailableSharp from "@material-ui/icons/EventAvailableSharp";
 import InfoRounded from "@material-ui/icons/InfoRounded";
 import WarningRounded from "@material-ui/icons/WarningRounded";
-import PropTypes from 'prop-types';
 
 class Diligence extends React.Component {
     render() {
@@ -63,7 +62,4 @@ class Diligence extends React.Component {
     }
 }
 
-Diligence.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 export default Diligence;

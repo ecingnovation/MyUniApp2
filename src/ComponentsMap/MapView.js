@@ -59,7 +59,6 @@ class MapView extends Component {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
-                    //console.log(position.coords);
                     this.setState( (prevState) => ({
                         currentLatLng: {
                             ...prevState.currentLatLng,
@@ -85,7 +84,6 @@ class MapView extends Component {
                 <h1>Loading!</h1>
             );
         }else{
-            //console.log(this.state.markerList);
             return (
 
             <MapComponent
@@ -100,12 +98,8 @@ class MapView extends Component {
     getPointsFromApi() {
         let markerList= [];
         axiosInstance.get("/map/points").then((response) => {
-           // console.log(response.data);
-            //console.log("HERE");
             markerList = response.data;
-            //console.log(markerList)
             this.setState({markerList: markerList});
-           // console.log(this.state.markerList)
             localStorage.setItem("Markers", markerList);
             this.setState({
                 loaded : true
